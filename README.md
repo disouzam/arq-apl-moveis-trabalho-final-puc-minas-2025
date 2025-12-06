@@ -69,3 +69,29 @@ Este repositório contém todo o código-fonte do projeto, bem como os recursos 
 **Professor:** Fernando Pereira
 
 **Entrega Individual - Trabalho Prático: App Mobile - TEMA LIVRE**
+
+# Etapas do desenvolvimento, comandos e configurações
+
+## Criação do projeto template
+
+A aplicação móvel será desenvolvida em [React Native](https://reactnative.dev/) usando o [framework Expo](https://docs.expo.dev/) para auxiliar no desenvolvimento e testes e, potencialmente, na publicação da aplicação em alguma loja de aplicativos. Ao longo dessa e das próximas seções, serão apresentados os ferramentais e bibliotecas utilizadas na construção da aplicação mas não será o intuito explicar em detalhes como configurar o computador de forma completa para reproduzir esse projeto. Caso alguma informação esteja em falta, registre uma `issue` no repositório que avaliarei a inclusão e/ou correção de informações importantes.
+
+- Versão do Node e do npm (consulte o site oficial do node para obter a versão LTS em um momento futuro - [Download Node.js](https://nodejs.org/en/download)): 
+
+```bash
+node -v
+# v24.11.1
+
+npm -v
+# 11.6.2
+```
+
+- Criação do projeto Expo template
+
+Será criada uma pasta chamada `mobile_app` para organização dos arquivos.
+
+```bash
+mkdir mobile_app
+cd mobile_app
+npx create-expo-app@latest --template # Essa instalação leva alguns minutos para finalizar, visto que todos os pacotes para o template escolhido - no caso atual, Navigation (TypeScript), são congigurados e instalados, equivalente à uma operação de `npm install`
+```
