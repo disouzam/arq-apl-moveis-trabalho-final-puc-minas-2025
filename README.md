@@ -139,3 +139,10 @@ cd backend
 dotnet new webapi --name production_tracker_api
 ```
 
+- Para rodar a API escrita em C# / .NET (considerando que o ponto de partida é a raiz do repositório):
+
+```bash
+cd backend
+cd production_tracker_api
+dotnet run --launch-profile http & curl http://localhost:5006/weatherforecast & echo # teste da aplicação template, sem modificações
+```
