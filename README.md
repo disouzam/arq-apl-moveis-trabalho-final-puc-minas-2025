@@ -95,3 +95,16 @@ mkdir mobile_app
 cd mobile_app
 npx create-expo-app@latest --template # Essa instalação leva alguns minutos para finalizar, visto que todos os pacotes para o template escolhido - no caso atual, Navigation (TypeScript), são congigurados e instalados, equivalente à uma operação de `npm install`
 ```
+
+- Para rodar a aplicação em modo de desenvolvimento, execute os comandos abaixo (a partir da raiz do repositório):
+
+```bash
+cd mobile_app
+cd production_tracker
+npm run android
+# npm run web para abrir o projeto em um navegador
+```
+
+A imagem a seguir mostra o conteúdo nas duas abas da aplicação de exemplo gerada no comando anterior:
+
+![Aplicação template](./docs/images/00_template_app_tabs_contents.png)
