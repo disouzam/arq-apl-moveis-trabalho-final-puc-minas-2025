@@ -108,3 +108,41 @@ npm run android
 A imagem a seguir mostra o conteúdo nas duas abas da aplicação de exemplo gerada no comando anterior:
 
 ![Aplicação template](./docs/images/00_template_app_tabs_contents.png)
+
+
+## Criação da API usando C# / .NET 8
+
+Para a API da aplicação, será usado um projeto em ASP.NET MVC dada a minha atual familiaridade com esse ecossistema e facilidade de encontrar exemplos de configuração.
+
+Nesse momento, será feita apenas a criação de uma aplicação template para dar início à criação do esqueleto do conjunto aplicação mobile + backend. 
+
+A API pode ser criada tanto usando o Visual Studio Community 2022, que é gratuito para projetos open source e desenvolvedores individuais (veja a documentação oficial para os limites de uso do Visual Studio Community 2022 - [VS Community](https://visualstudio.microsoft.com/vs/community))
+
+- Versão em uso do dotnet:
+  
+```bash
+dotnet --version
+# 9.0.307
+
+dotnet --list-sdks
+# 9.0.307 [C:\Program Files\dotnet\sdk]
+
+dotnet new list > dotnet-templates.txt
+# O arquivo `dotnet-templates.txt` contém os templates .NET disponíveis
+```
+
+- Criação do projeto inicial
+
+```bash
+mkdir backend
+cd backend
+dotnet new webapi --name production_tracker_api
+```
+
+- Para rodar a API escrita em C# / .NET (considerando que o ponto de partida é a raiz do repositório):
+
+```bash
+cd backend
+cd production_tracker_api
+dotnet run --launch-profile http & curl http://localhost:5006/weatherforecast & echo # teste da aplicação template, sem modificações
+```
