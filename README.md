@@ -146,3 +146,12 @@ cd backend
 cd production_tracker_api
 dotnet run --launch-profile http & curl http://localhost:5006/weatherforecast & echo # teste da aplicação template, sem modificações
 ```
+# Desenho das telas principais no Figma - versão gratuita
+
+Como suporte para o desenvolvimento e parte dos requisitios do trabalho final, as telas principais do aplicativo em desenvolvimento estão sendo construídas usando o Figma, versão gratuita.
+
+As primeiras duas telas estão prontas e já permitem uma primeira iteração no desenvolvimento da aplicação React Native:
+
+Tela 1: Visualização das ordens de produção
+
+![Tela 1: Visualização das ordens de produção](./docs/images/01_primeira_tela_Figma.png)
