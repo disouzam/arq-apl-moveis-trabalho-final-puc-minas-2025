@@ -156,10 +156,15 @@ As telas podem ser visualizadas no link a seguir
 
 As primeiras duas telas estão prontas e já permitem uma primeira iteração no desenvolvimento da aplicação React Native:
 
-Tela 1: Visualização das ordens de produção
-
-![Tela 1: Visualização das ordens de produção](./docs/images/01_primeira_tela_Figma.png)
-
-Tela 2: Criação de um apontamento de horas para uma etapa de uma ordem de produção
-
-![Tela 2: Criação de um apontamento de horas para uma etapa de uma ordem de produção](./docs/images/02_segunda_tela_Figma.png)
+<div align="center">
+    <a href="./docs/images/01_primeira_tela_Figma.png">
+        Tela 1: Visualização das ordens de produção
+    </a>
+    <img src="./docs/images/01_primeira_tela_Figma.png" width="412px"/>     
+</div>
+<div align="center">
+    <a href="./docs/images/02_segunda_tela_Figma.png">
+        Tela 2: Criação de um apontamento de horas para uma etapa de uma ordem de produção
+    </a>
+    <img src="./docs/images/02_segunda_tela_Figma.png" width="412px"/>
+</div>
