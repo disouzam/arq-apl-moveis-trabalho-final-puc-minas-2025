@@ -110,7 +110,7 @@ A imagem a seguir mostra o conteúdo nas duas abas da aplicação de exemplo ger
 ![Aplicação template](./docs/images/00_template_app_tabs_contents.png)
 
 
-## Criação da API usando C# / .NET 8
+## Criação da API usando C# / .NET 9
 
 Para a API da aplicação, será usado um projeto em ASP.NET MVC dada a minha atual familiaridade com esse ecossistema e facilidade de encontrar exemplos de configuração.
 
