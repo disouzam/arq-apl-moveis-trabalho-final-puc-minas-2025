@@ -110,7 +110,7 @@ A imagem a seguir mostra o conteúdo nas duas abas da aplicação de exemplo ger
 ![Aplicação template](./docs/images/00_template_app_tabs_contents.png)
 
 
-## Criação da API usando C# / .NET 8
+## Criação da API usando C# / .NET 9
 
 Para a API da aplicação, será usado um projeto em ASP.NET MVC dada a minha atual familiaridade com esse ecossistema e facilidade de encontrar exemplos de configuração.
 
@@ -146,3 +146,27 @@ cd backend
 cd production_tracker_api
 dotnet run --launch-profile http & curl http://localhost:5006/weatherforecast & echo # teste da aplicação template, sem modificações
 ```
+# Desenho das telas principais no Figma - versão gratuita
+
+Como suporte para o desenvolvimento e parte dos requisitios do trabalho final, as telas principais do aplicativo em desenvolvimento estão sendo construídas usando o Figma, versão gratuita.
+
+As telas podem ser visualizadas no link a seguir
+
+[Telas do aplicativo Production Tracker no Figma](https://www.figma.com/design/gCrMeJdoBKqljok4UnIfV8/Telas-do-aplicativo?node-id=4-83&t=gnBfXmrL67we41UC-1)
+
+As primeiras duas telas estão prontas e já permitem uma primeira iteração no desenvolvimento da aplicação React Native:
+
+<div style="display:flex; width:100%">
+    <div style="width:50%">
+        <a href="./docs/images/01_primeira_tela_Figma.png">
+            Tela 1: Visualização das ordens de produção <br/><br/>
+        </a>
+        <img src="./docs/images/01_primeira_tela_Figma.png" width="412px"/>     
+    </div>
+    <div style="width:50%">
+        <a href="./docs/images/02_segunda_tela_Figma.png">
+            Tela 2: Criação de um apontamento de horas para uma etapa de uma ordem de produção
+        </a>
+        <img src="./docs/images/02_segunda_tela_Figma.png" width="412px"/>
+    </div>
+</div>
