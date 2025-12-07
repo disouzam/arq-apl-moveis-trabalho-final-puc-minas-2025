@@ -150,8 +150,16 @@ dotnet run --launch-profile http & curl http://localhost:5006/weatherforecast & 
 
 Como suporte para o desenvolvimento e parte dos requisitios do trabalho final, as telas principais do aplicativo em desenvolvimento estão sendo construídas usando o Figma, versão gratuita.
 
+As telas podem ser visualizadas no link a seguir
+
+[Telas do aplicativo Production Tracker no Figma](https://www.figma.com/design/gCrMeJdoBKqljok4UnIfV8/Telas-do-aplicativo?node-id=4-83&t=gnBfXmrL67we41UC-1)
+
 As primeiras duas telas estão prontas e já permitem uma primeira iteração no desenvolvimento da aplicação React Native:
 
 Tela 1: Visualização das ordens de produção
 
 ![Tela 1: Visualização das ordens de produção](./docs/images/01_primeira_tela_Figma.png)
+
+Tela 2: Criação de um apontamento de horas para uma etapa de uma ordem de produção
+
+![Tela 2: Criação de um apontamento de horas para uma etapa de uma ordem de produção](./docs/images/02_segunda_tela_Figma.png)
