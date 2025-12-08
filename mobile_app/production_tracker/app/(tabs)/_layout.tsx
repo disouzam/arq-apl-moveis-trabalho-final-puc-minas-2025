@@ -52,7 +52,7 @@ export default function TabLayout() {
         name="apontamentos"
         options={{
           title: 'Apontamentos',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          tabBarIcon: ({ color }) => <MaterialIcons name="more-time" size={24} color={color} />,
         }}
       />
     </Tabs>
