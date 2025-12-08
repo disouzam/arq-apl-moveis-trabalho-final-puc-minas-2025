@@ -1,5 +1,6 @@
 import React from 'react';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
+import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import { Link, Tabs } from 'expo-router';
 import { Pressable } from 'react-native';
 
@@ -30,7 +31,7 @@ export default function TabLayout() {
         name="index"
         options={{
           title: 'Ordens de Produção',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          tabBarIcon: ({ color }) => <MaterialIcons name="precision-manufacturing" size={24} color={color} />,
           headerRight: () => (
             <Link href="/modal" asChild>
               <Pressable>
