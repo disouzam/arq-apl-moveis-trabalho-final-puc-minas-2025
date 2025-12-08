@@ -1,16 +1,16 @@
 import { StyleSheet } from 'react-native';
 
-import ListaOrdensDeProducao from '@/components/ListaOrdensDeProducao';
+import OrdemDeProducao from '@/components/OrdemDeProducao';
 import { Text, View } from '@/components/Themed';
 
 export default function TabOneScreen() {
   return (
     <View style={styles.container}>
-      <ListaOrdensDeProducao id={'1234567890'}/>
-      <ListaOrdensDeProducao id={'1234567890'}/>
-      <ListaOrdensDeProducao id={'1234567890'}/>
-      <ListaOrdensDeProducao id={'1234567890'}/>
-      <ListaOrdensDeProducao id={'1234567890'}/>
+      <OrdemDeProducao id={'1234567890'}/>
+      <OrdemDeProducao id={'1234567890'}/>
+      <OrdemDeProducao id={'1234567890'}/>
+      <OrdemDeProducao id={'1234567890'}/>
+      <OrdemDeProducao id={'1234567890'}/>
     </View>
   );
 }

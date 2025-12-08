@@ -6,7 +6,7 @@ type TipoOrdemDeProducao = {
   id: string;
 };
 
-export default function ListaOrdensDeProducao(
+export default function OrdemDeProducao(
   ordemDeProducao: TipoOrdemDeProducao
 ) {
   return (
