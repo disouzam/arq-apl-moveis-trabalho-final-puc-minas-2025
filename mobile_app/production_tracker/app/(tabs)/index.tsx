@@ -6,7 +6,11 @@ import { Text, View } from '@/components/Themed';
 export default function TabOneScreen() {
   return (
     <View style={styles.container}>
-      <ListaOrdensDeProducao path="app/(tabs)/index.tsx" />
+      <ListaOrdensDeProducao id={'1234567890'}/>
+      <ListaOrdensDeProducao id={'1234567890'}/>
+      <ListaOrdensDeProducao id={'1234567890'}/>
+      <ListaOrdensDeProducao id={'1234567890'}/>
+      <ListaOrdensDeProducao id={'1234567890'}/>
     </View>
   );
 }
@@ -14,8 +18,7 @@ export default function TabOneScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: 'flex-start',
   },
   title: {
     fontSize: 20,

@@ -1,9 +1,31 @@
-import React from 'react';
-import { View } from './Themed';
+import React from "react";
+import { Text, View } from "./Themed";
+import { StyleSheet } from "react-native";
 
-export default function ListaOrdensDeProducao({ path }: { path: string }) {
+type ordemDeProducao = {
+  id: string;
+};
+
+export default function ListaOrdensDeProducao(
+  ordemDeProducao: ordemDeProducao
+) {
   return (
     <View>
+      <Text
+        style={styles.ordemDeProducao}
+        lightColor="rgba(0,0,0,0.8)"
+        darkColor="rgba(255,255,255,0.8)"
+      >
+        &#123;numero da ordem de producao&#125;:{ordemDeProducao?.id}
+      </Text>
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  ordemDeProducao: {
+    fontSize: 17,
+    lineHeight: 24,
+    textAlign: "left",
+  },
+});
