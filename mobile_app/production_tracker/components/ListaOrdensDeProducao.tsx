@@ -2,12 +2,12 @@ import React from "react";
 import { Text, View } from "./Themed";
 import { StyleSheet } from "react-native";
 
-type ordemDeProducao = {
+type TipoOrdemDeProducao = {
   id: string;
 };
 
 export default function ListaOrdensDeProducao(
-  ordemDeProducao: ordemDeProducao
+  ordemDeProducao: TipoOrdemDeProducao
 ) {
   return (
     <View>
