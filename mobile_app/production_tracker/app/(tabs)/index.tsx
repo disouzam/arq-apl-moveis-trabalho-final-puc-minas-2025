@@ -1,35 +1,41 @@
 import { StyleSheet } from "react-native";
 
 import OrdemDeProducao, {
+  TipoOrdemDeProducao,
   EstadoOrdemDeProducao,
 } from "@/components/OrdemDeProducao";
 import { Text, View } from "@/components/Themed";
+import ListaDeOrdensdeProducao from "@/components/ListaDeOrdensdeProducao";
 
 export default function TabOneScreen() {
-  return (
-    <View style={styles.container}>
-      <OrdemDeProducao
-        state={EstadoOrdemDeProducao.APROVADA}
-        id={"1234567890"}
-      />
-      <OrdemDeProducao
-        state={EstadoOrdemDeProducao.APROVADA}
-        id={"1234567890"}
-      />
-      <OrdemDeProducao
-        state={EstadoOrdemDeProducao.APROVADA}
-        id={"1234567890"}
-      />
-      <OrdemDeProducao
-        state={EstadoOrdemDeProducao.APROVADA}
-        id={"1234567890"}
-      />
-      <OrdemDeProducao
-        state={EstadoOrdemDeProducao.APROVADA}
-        id={"1234567890"}
-      />
-    </View>
-  );
+  const dados: TipoOrdemDeProducao[] = [
+    {
+      id: "1234567890",
+      state: EstadoOrdemDeProducao.APROVADA,
+    },
+    {
+      id: "1234567891",
+      state: EstadoOrdemDeProducao.APROVADA,
+    },
+    {
+      id: "1234567892",
+      state: EstadoOrdemDeProducao.APROVADA,
+    },
+    {
+      id: "1234567893",
+      state: EstadoOrdemDeProducao.APROVADA,
+    },
+    {
+      id: "1234567894",
+      state: EstadoOrdemDeProducao.APROVADA,
+    },
+    {
+      id: "1234567895",
+      state: EstadoOrdemDeProducao.APROVADA,
+    },
+  ];
+
+  return <ListaDeOrdensdeProducao ordens={dados}></ListaDeOrdensdeProducao>;
 }
 
 const styles = StyleSheet.create({
