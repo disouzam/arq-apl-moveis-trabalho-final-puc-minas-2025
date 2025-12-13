@@ -42,7 +42,7 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="apontamentos"
+        name="abaDois"
         options={{
           title: 'Apontamentos',
           tabBarIcon: ({ color }) => <MaterialIcons name="more-time" size={24} color={color} />,
