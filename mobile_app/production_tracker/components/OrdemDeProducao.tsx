@@ -2,13 +2,18 @@ import React from "react";
 import { Text, View } from "./Themed";
 import { StyleSheet } from "react-native";
 
-type TipoOrdemDeProducao = {
+export enum EstadoOrdemDeProducao {
+  APROVADA="Aprovada",
+  PENDENTE="Pendente",
+  FINALIZADA="Finalizada",
+}
+
+export type TipoOrdemDeProducao = {
   id: string;
+  state: EstadoOrdemDeProducao;
 };
 
-export default function OrdemDeProducao(
-  ordemDeProducao: TipoOrdemDeProducao
-) {
+export default function OrdemDeProducao(ordemDeProducao: TipoOrdemDeProducao) {
   return (
     <View>
       <Text
@@ -16,7 +21,7 @@ export default function OrdemDeProducao(
         lightColor="rgba(0,0,0,0.8)"
         darkColor="rgba(255,255,255,0.8)"
       >
-        &#123;numero da ordem de producao&#125;:{ordemDeProducao?.id}
+        {ordemDeProducao.state}:{ordemDeProducao?.id}
       </Text>
     </View>
   );

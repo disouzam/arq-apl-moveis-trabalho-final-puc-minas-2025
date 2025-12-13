@@ -1,16 +1,33 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet } from "react-native";
 
-import OrdemDeProducao from '@/components/OrdemDeProducao';
-import { Text, View } from '@/components/Themed';
+import OrdemDeProducao, {
+  EstadoOrdemDeProducao,
+} from "@/components/OrdemDeProducao";
+import { Text, View } from "@/components/Themed";
 
 export default function TabOneScreen() {
   return (
     <View style={styles.container}>
-      <OrdemDeProducao id={'1234567890'}/>
-      <OrdemDeProducao id={'1234567890'}/>
-      <OrdemDeProducao id={'1234567890'}/>
-      <OrdemDeProducao id={'1234567890'}/>
-      <OrdemDeProducao id={'1234567890'}/>
+      <OrdemDeProducao
+        state={EstadoOrdemDeProducao.APROVADA}
+        id={"1234567890"}
+      />
+      <OrdemDeProducao
+        state={EstadoOrdemDeProducao.APROVADA}
+        id={"1234567890"}
+      />
+      <OrdemDeProducao
+        state={EstadoOrdemDeProducao.APROVADA}
+        id={"1234567890"}
+      />
+      <OrdemDeProducao
+        state={EstadoOrdemDeProducao.APROVADA}
+        id={"1234567890"}
+      />
+      <OrdemDeProducao
+        state={EstadoOrdemDeProducao.APROVADA}
+        id={"1234567890"}
+      />
     </View>
   );
 }
@@ -18,15 +35,15 @@ export default function TabOneScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'flex-start',
+    alignItems: "flex-start",
   },
   title: {
     fontSize: 20,
-    fontWeight: 'bold',
+    fontWeight: "bold",
   },
   separator: {
     marginVertical: 30,
     height: 1,
-    width: '80%',
+    width: "80%",
   },
 });
