@@ -30,7 +30,9 @@ export default function OrdemDeProducao(ordemDeProducao: TipoOrdemDeProducao) {
 const styles = StyleSheet.create({
   ordemDeProducao: {
     fontSize: 17,
-    lineHeight: 24,
+    lineHeight: 50,
     textAlign: "left",
+    paddingLeft: 15,
+    paddingRight: 15,
   },
 });
