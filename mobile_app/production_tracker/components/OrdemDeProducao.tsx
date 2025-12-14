@@ -5,47 +5,10 @@ import { TipoOrdemDeProducao } from "@/models/TipoOrdemDeProducao";
 import { EstadoOrdemDeProducao } from "@/models/enums/EstadoOrdemDeProducao";
 import Colors from "@/constants/Colors";
 import { useColorScheme } from "./useColorScheme";
+import { ordemDeProducaoEstilos } from "@/styles/OrdemDeProducaoEstilos";
 
 export default function OrdemDeProducao(ordemDeProducao: TipoOrdemDeProducao) {
   const colorScheme = useColorScheme();
-
-  const styles = StyleSheet.create({
-    container: {
-      display: "flex",
-      flexDirection: "row",
-      height: 50,
-      padding: 0,
-      margin: 5,
-      fontSize: 20,
-    },
-    ordemDeProducaoState: {
-      flex: 3,
-      paddingLeft: 15,
-      margin: 0,
-      color: "#000",
-      verticalAlign: "middle",
-    },
-    ordemDeProducaoId: {
-      flex: 4,
-      paddingLeft: 15,
-      margin: 0,
-      color: "#000",
-      verticalAlign: "middle",
-    },
-    button: {
-      flex: 5,
-      borderRadius: 20,
-      padding: 15,
-      margin: 0,
-      alignItems: "center",
-      verticalAlign: "middle",
-      backgroundColor: "yellow",
-    },
-    buttonLabel: {
-      color: "#000",
-      fontWeight: "bold",
-    },
-  });
 
   const isButtonEnabled = (estado: EstadoOrdemDeProducao) => {
     if (estado === EstadoOrdemDeProducao.PENDENTE) {
@@ -57,14 +20,14 @@ export default function OrdemDeProducao(ordemDeProducao: TipoOrdemDeProducao) {
   const buttonStyle = (estado: EstadoOrdemDeProducao) => {
     if (isButtonEnabled(estado)) {
       return [
-        styles.button,
+        ordemDeProducaoEstilos.button,
         {
           backgroundColor: Colors[colorScheme ?? "light"].tint,
         },
       ];
     }
     return [
-      styles.button,
+      ordemDeProducaoEstilos.button,
       {
         backgroundColor: Colors[colorScheme ?? "light"].tabIconDefault,
       },
@@ -99,16 +62,16 @@ export default function OrdemDeProducao(ordemDeProducao: TipoOrdemDeProducao) {
   };
 
   return (
-    <View style={styles.container}>
+    <View style={ordemDeProducaoEstilos.container}>
       <Text
-        style={styles.ordemDeProducaoState}
+        style={ordemDeProducaoEstilos.ordemDeProducaoState}
         lightColor="rgba(0,0,0,0.8)"
         darkColor="rgba(255,255,255,0.8)"
       >
         {ordemDeProducao.state}
       </Text>
       <Text
-        style={styles.ordemDeProducaoId}
+        style={ordemDeProducaoEstilos.ordemDeProducaoId}
         lightColor="rgba(0,0,0,0.8)"
         darkColor="rgba(255,255,255,0.8)"
       >
@@ -118,7 +81,7 @@ export default function OrdemDeProducao(ordemDeProducao: TipoOrdemDeProducao) {
         style={buttonStyle(ordemDeProducao.state)}
         onPress={onPress(ordemDeProducao.state)}
       >
-        <Text style={styles.buttonLabel}>
+        <Text style={ordemDeProducaoEstilos.buttonLabel}>
           {buttonLabel(ordemDeProducao.state)}
         </Text>
       </Pressable>
