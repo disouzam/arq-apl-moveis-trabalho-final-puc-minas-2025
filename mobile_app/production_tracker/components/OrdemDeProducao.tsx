@@ -3,8 +3,56 @@ import { Text, View } from "./Themed";
 import { StyleSheet, Pressable } from "react-native";
 import { TipoOrdemDeProducao } from "@/models/TipoOrdemDeProducao";
 import { EstadoOrdemDeProducao } from "@/models/enums/EstadoOrdemDeProducao";
+import Colors from "@/constants/Colors";
+import { useColorScheme } from "./useColorScheme";
 
 export default function OrdemDeProducao(ordemDeProducao: TipoOrdemDeProducao) {
+  const colorScheme = useColorScheme();
+
+  const styles = StyleSheet.create({
+    container: {
+      display: "flex",
+      flexDirection: "row",
+      height: 50,
+      padding: 0,
+      margin: 5,
+      fontSize: 20,
+    },
+    ordemDeProducaoState: {
+      flex: 3,
+      paddingLeft: 15,
+      margin: 0,
+      color: "#000",
+      verticalAlign: "middle",
+    },
+    ordemDeProducaoId: {
+      flex: 4,
+      paddingLeft: 15,
+      margin: 0,
+      color: "#000",
+      verticalAlign: "middle",
+    },
+    button: {
+      flex: 5,
+      borderRadius: 20,
+      padding: 15,
+      margin: 0,
+      alignItems: "center",
+      verticalAlign: "middle",
+      backgroundColor: "yellow",
+    },
+    activeButton: {
+      backgroundColor: Colors[colorScheme ?? "light"].tint,
+    },
+    inactiveButton: {
+      backgroundColor: Colors[colorScheme ?? "light"].tabIconDefault,
+    },
+    buttonLabel: {
+      color: "#000",
+      fontWeight: "bold",
+    },
+  });
+
   const isButtonEnabled = (estado: EstadoOrdemDeProducao) => {
     if (estado === EstadoOrdemDeProducao.PENDENTE) {
       return false;
@@ -73,47 +121,3 @@ export default function OrdemDeProducao(ordemDeProducao: TipoOrdemDeProducao) {
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    display: "flex",
-    flexDirection: "row",
-    height: 50,
-    padding: 0,
-    margin: 0,
-    fontSize: 20,
-  },
-  ordemDeProducaoState: {
-    flex: 3,
-    paddingLeft: 15,
-    margin: 0,
-    color: "#000",
-    verticalAlign: "middle",
-  },
-  ordemDeProducaoId: {
-    flex: 3,
-    paddingLeft: 15,
-    margin: 0,
-    color: "#000",
-    verticalAlign: "middle",
-  },
-  button: {
-    flex: 6,
-    borderRadius: 0,
-    padding: 15,
-    margin: 0,
-    alignItems: "flex-start",
-    verticalAlign: "middle",
-    backgroundColor: "yellow",
-  },
-  activeButton: {
-    backgroundColor: "green",
-  },
-  inactiveButton: {
-    backgroundColor: "red",
-  },
-  buttonLabel: {
-    color: "#000",
-    fontWeight: "bold",
-  },
-});
