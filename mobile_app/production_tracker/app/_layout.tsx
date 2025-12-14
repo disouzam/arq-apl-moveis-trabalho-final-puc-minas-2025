@@ -5,6 +5,7 @@ import { Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { useEffect } from 'react';
 import 'react-native-reanimated';
+import { StatusBar } from "expo-status-bar";
 
 import { useColorScheme } from '@/components/useColorScheme';
 
@@ -54,6 +55,7 @@ function RootLayoutNav() {
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
         <Stack.Screen name="modal" options={{ presentation: 'modal' }} />
       </Stack>
+      <StatusBar style={colorScheme === 'dark' ? "light" : "dark"} />
     </ThemeProvider>
   );
 }
