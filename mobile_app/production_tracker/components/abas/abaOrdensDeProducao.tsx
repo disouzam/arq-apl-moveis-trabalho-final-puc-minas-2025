@@ -1,5 +1,3 @@
-import { StyleSheet } from "react-native";
-
 import ListaDeOrdensdeProducao from "@/components/ListaDeOrdensdeProducao";
 import { TipoOrdemDeProducao } from "@/models/TipoOrdemDeProducao";
 import { EstadoOrdemDeProducao } from "@/models/enums/EstadoOrdemDeProducao";
