@@ -1,6 +1,8 @@
 import { View, Text } from "react-native";
 import { apontamentoEstilos } from "@/styles/apontamentoEstilos";
 import { DadosOrdemDeProducao } from "@/models/DadosOrdemDeProducao";
+import DateTimePicker from "@react-native-community/datetimepicker";
+import { useState } from "react";
 
 type Props = {
   dados: DadosOrdemDeProducao;
@@ -8,6 +10,9 @@ type Props = {
 };
 
 export default function CampoApontamento(props: Props) {
+  const [dadosLocais, setDadosLocais] = useState<DadosOrdemDeProducao>(
+    props.dados
+  );
   let index: number | undefined;
 
   if (props.indexEtapa === undefined) {
@@ -16,16 +21,16 @@ export default function CampoApontamento(props: Props) {
     index = props.indexEtapa;
   }
 
-  const numeroEtapas = props.dados.etapa.length;
-  const numeroInicioRegistrado = props.dados.inicio.length;
-  const numeroFinalRegistrado = props.dados.final.length;
+  const numeroEtapas = dadosLocais.etapa.length;
+  const numeroInicioRegistrado = dadosLocais.inicio.length;
+  const numeroFinalRegistrado = dadosLocais.final.length;
 
   return (
     <>
       <View style={apontamentoEstilos.row}>
         <Text style={apontamentoEstilos.label}>Ordem de Produção</Text>
         <Text style={apontamentoEstilos.dataOrAction}>
-          {props.dados.idDaOrdemDeProducao}
+          {dadosLocais.idDaOrdemDeProducao}
         </Text>
       </View>
 
@@ -33,7 +38,7 @@ export default function CampoApontamento(props: Props) {
         <View style={apontamentoEstilos.row}>
           <Text style={apontamentoEstilos.label}>Etapa</Text>
           <Text style={apontamentoEstilos.dataOrAction}>
-            {props.dados.etapa[index]}
+            {dadosLocais.etapa[index]}
           </Text>
         </View>
       ) : (
@@ -48,7 +53,7 @@ export default function CampoApontamento(props: Props) {
         <View style={apontamentoEstilos.row}>
           <Text style={apontamentoEstilos.label}>Início</Text>
           <Text style={apontamentoEstilos.dataOrAction}>
-            {props.dados.inicio[index].toISOString()}
+            {dadosLocais.inicio[index].toISOString()}
           </Text>
         </View>
       ) : (
@@ -61,17 +66,15 @@ export default function CampoApontamento(props: Props) {
       )}
       {index !== undefined && numeroFinalRegistrado > 0 ? (
         <View style={apontamentoEstilos.row}>
-          <Text style={apontamentoEstilos.label}>Início</Text>
+          <Text style={apontamentoEstilos.label}>Final</Text>
           <Text style={apontamentoEstilos.dataOrAction}>
-            {props.dados.final[index].toISOString()}
+            {dadosLocais.final[index].toISOString()}
           </Text>
         </View>
       ) : (
         <View style={apontamentoEstilos.row}>
-          <Text style={apontamentoEstilos.label}>Início</Text>
-          <Text style={apontamentoEstilos.dataOrAction}>
-            Sem registro de horário de final
-          </Text>
+          <Text style={apontamentoEstilos.label}>Final</Text>
+          {/* <DateTimePicker mode="date" value={new Date()} /> */}
         </View>
       )}
     </>
