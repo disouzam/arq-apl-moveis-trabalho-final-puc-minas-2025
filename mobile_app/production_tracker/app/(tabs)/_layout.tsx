@@ -1,5 +1,5 @@
 import React from "react";
-import { Pressable, StyleProp, StyleSheet, TextStyle } from "react-native";
+import { Pressable, StyleSheet } from "react-native";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 import { Link, Tabs } from "expo-router";
@@ -15,16 +15,15 @@ export default function TabLayout() {
     <Tabs
       screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme ?? "light"].tint,
-        tabBarActiveBackgroundColor: "red",
-        tabBarInactiveBackgroundColor: "red",
         tabBarPosition: "top",
-        tabBarLabelStyle: {fontSize:12},
-
+        tabBarLabelStyle: {fontSize:16, fontStyle:"italic"},
+        tabBarLabelPosition:"below-icon",
+        tabBarStyle:{height:90},
+        headerStatusBarHeight: 0,
         // Disable the static render of the header on web
         // to prevent a hydration error in React Navigation v6.
         headerShown: useClientOnlyValue(false, true),
       }}
-
     >
       <Tabs.Screen
         name="index"
@@ -37,7 +36,7 @@ export default function TabLayout() {
               color={color}
             />
           ),
-          headerStyle:{backgroundColor:"green", height:60},
+          headerStyle:{...styles.headerStyle},
           headerRight: () => (
             <Link href="/modal" asChild>
               <Pressable>
@@ -61,9 +60,15 @@ export default function TabLayout() {
           tabBarIcon: ({ color }) => (
             <MaterialIcons name="more-time" size={30} color={color} />
           ),
+          headerStyle:{...styles.headerStyle},
         }}
       />
     </Tabs>
   );
 }
 
+const styles = {
+  headerStyle: {
+    height:45,
+  },
+};
