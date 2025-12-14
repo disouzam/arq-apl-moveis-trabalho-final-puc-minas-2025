@@ -5,19 +5,19 @@ import { TipoOrdemDeProducao } from "@/models/TipoOrdemDeProducao";
 import { EstadoOrdemDeProducao } from "@/models/enums/EstadoOrdemDeProducao";
 
 export default function OrdemDeProducao(ordemDeProducao: TipoOrdemDeProducao) {
-  const isButtonEnable = (estado: EstadoOrdemDeProducao) => {
-    if (estado === EstadoOrdemDeProducao.PENDENTE){
+  const isButtonEnabled = (estado: EstadoOrdemDeProducao) => {
+    if (estado === EstadoOrdemDeProducao.PENDENTE) {
       return false;
     }
     return true;
-  }
+  };
 
   const buttonStyle = (estado: EstadoOrdemDeProducao) => {
-    if (isButtonEnable(estado)){
-      return styles.button;
+    if (isButtonEnabled(estado)) {
+      return [styles.button, styles.activeButton];
     }
-    return styles.inactiveButton;
-  }
+    return [styles.button, styles.inactiveButton];
+  };
 
   const buttonLabel = (estado: EstadoOrdemDeProducao) => {
     switch (estado) {
@@ -30,7 +30,21 @@ export default function OrdemDeProducao(ordemDeProducao: TipoOrdemDeProducao) {
       default:
         return "Estado inconsistente";
     }
-  }
+  };
+
+  const onPress = (estado: EstadoOrdemDeProducao) => {
+    switch (estado) {
+      case EstadoOrdemDeProducao.APROVADA:
+        return () => alert(`Editar ordem aprovada: ${ordemDeProducao.id}`);
+      case EstadoOrdemDeProducao.PENDENTE:
+        return () =>
+          alert(`Solicitar aprovação da ordem: ${ordemDeProducao.id}`);
+      case EstadoOrdemDeProducao.FINALIZADA:
+        return () => alert(`Visualizar apontamentos: ${ordemDeProducao.id}`);
+      default:
+        return () => alert(`Estado inconsistente!`);
+    }
+  };
 
   return (
     <View style={styles.container}>
@@ -50,9 +64,11 @@ export default function OrdemDeProducao(ordemDeProducao: TipoOrdemDeProducao) {
       </Text>
       <Pressable
         style={buttonStyle(ordemDeProducao.state)}
-        onPress={() => alert(`Deu certo!: ${ordemDeProducao.id}`)}
+        onPress={onPress(ordemDeProducao.state)}
       >
-        <Text style={styles.buttonLabel}>{buttonLabel(ordemDeProducao.state)}</Text>
+        <Text style={styles.buttonLabel}>
+          {buttonLabel(ordemDeProducao.state)}
+        </Text>
       </Pressable>
     </View>
   );
@@ -72,14 +88,14 @@ const styles = StyleSheet.create({
     paddingLeft: 15,
     margin: 0,
     color: "#000",
-    verticalAlign: "middle"
+    verticalAlign: "middle",
   },
   ordemDeProducaoId: {
     flex: 3,
     paddingLeft: 15,
     margin: 0,
     color: "#000",
-    verticalAlign: "middle"
+    verticalAlign: "middle",
   },
   button: {
     flex: 6,
@@ -88,18 +104,16 @@ const styles = StyleSheet.create({
     margin: 0,
     alignItems: "flex-start",
     verticalAlign: "middle",
+    backgroundColor: "yellow",
+  },
+  activeButton: {
     backgroundColor: "green",
   },
   inactiveButton: {
-    flex: 6,
-    borderRadius: 0,
-    padding: 15,
-    margin: 0,
-    alignItems: "flex-start",
-    verticalAlign: "middle",
     backgroundColor: "red",
   },
   buttonLabel: {
     color: "#000",
+    fontWeight: "bold",
   },
 });
