@@ -1,8 +1,10 @@
-import { View, Text } from "react-native";
+import Colors from "@/constants/Colors";
+import { View, Text, Pressable, useColorScheme } from "react-native";
 import { apontamentoEstilos } from "@/styles/apontamentoEstilos";
 import { DadosOrdemDeProducao } from "@/models/DadosOrdemDeProducao";
 import DateTimePicker from "@react-native-community/datetimepicker";
 import { useState } from "react";
+import { ordemDeProducaoEstilos } from "@/styles/OrdemDeProducaoEstilos";
 
 type Props = {
   dados: DadosOrdemDeProducao;
@@ -10,6 +12,8 @@ type Props = {
 };
 
 export default function CampoApontamento(props: Props) {
+  const colorScheme = useColorScheme();
+
   const [dadosLocais, setDadosLocais] = useState<DadosOrdemDeProducao>(
     props.dados
   );
@@ -64,8 +68,19 @@ export default function CampoApontamento(props: Props) {
             {dadosLocais.final[index].toISOString()}
           </Text>
         ) : (
-          <Text></Text>
-          /* <DateTimePicker mode="date" value={new Date()} /> */
+          <Pressable
+            style={[
+              ordemDeProducaoEstilos.button,
+              {
+                backgroundColor: Colors[colorScheme ?? "light"].tint,
+              },
+            ]}
+            onPress={() => alert()}
+          >
+            <Text style={ordemDeProducaoEstilos.buttonLabel}>
+              Selecione a data
+            </Text>
+          </Pressable>
         )}
       </View>
     </>
