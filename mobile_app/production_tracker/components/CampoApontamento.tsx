@@ -33,50 +33,41 @@ export default function CampoApontamento(props: Props) {
           {dadosLocais.idDaOrdemDeProducao}
         </Text>
       </View>
-
-      {index !== undefined && numeroEtapas > 0 ? (
-        <View style={apontamentoEstilos.row}>
-          <Text style={apontamentoEstilos.label}>Etapa</Text>
+      <View style={apontamentoEstilos.row}>
+        <Text style={apontamentoEstilos.label}>Etapa</Text>
+        {index !== undefined && numeroEtapas > 0 ? (
           <Text style={apontamentoEstilos.dataOrAction}>
             {dadosLocais.etapa[index]}
           </Text>
-        </View>
-      ) : (
-        <View style={apontamentoEstilos.row}>
-          <Text style={apontamentoEstilos.label}>Etapa</Text>
+        ) : (
           <Text style={apontamentoEstilos.dataOrAction}>
             Sem etapa registrada
           </Text>
-        </View>
-      )}
-      {index !== undefined && numeroInicioRegistrado > 0 ? (
-        <View style={apontamentoEstilos.row}>
-          <Text style={apontamentoEstilos.label}>Início</Text>
+        )}
+      </View>
+      <View style={apontamentoEstilos.row}>
+        <Text style={apontamentoEstilos.label}>Início</Text>
+        {index !== undefined && numeroInicioRegistrado > 0 ? (
           <Text style={apontamentoEstilos.dataOrAction}>
             {dadosLocais.inicio[index].toISOString()}
           </Text>
-        </View>
-      ) : (
-        <View style={apontamentoEstilos.row}>
-          <Text style={apontamentoEstilos.label}>Início</Text>
+        ) : (
           <Text style={apontamentoEstilos.dataOrAction}>
             Sem registro de horário de início
           </Text>
-        </View>
-      )}
-      {index !== undefined && numeroFinalRegistrado > 0 ? (
-        <View style={apontamentoEstilos.row}>
-          <Text style={apontamentoEstilos.label}>Final</Text>
+        )}
+      </View>
+      <View style={apontamentoEstilos.row}>
+        <Text style={apontamentoEstilos.label}>Final</Text>
+        {index !== undefined && numeroFinalRegistrado > 0 ? (
           <Text style={apontamentoEstilos.dataOrAction}>
             {dadosLocais.final[index].toISOString()}
           </Text>
-        </View>
-      ) : (
-        <View style={apontamentoEstilos.row}>
-          <Text style={apontamentoEstilos.label}>Final</Text>
-          {/* <DateTimePicker mode="date" value={new Date()} /> */}
-        </View>
-      )}
+        ) : (
+          <Text></Text>
+          /* <DateTimePicker mode="date" value={new Date()} /> */
+        )}
+      </View>
     </>
   );
 }
