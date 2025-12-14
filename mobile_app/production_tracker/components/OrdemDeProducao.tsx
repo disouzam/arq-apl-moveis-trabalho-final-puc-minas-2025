@@ -1,11 +1,11 @@
 import React from "react";
 import { Text, View } from "./Themed";
-import { StyleSheet } from "react-native";
+import { StyleSheet, Pressable } from "react-native";
 
 export enum EstadoOrdemDeProducao {
-  APROVADA="Aprovada",
-  PENDENTE="Pendente",
-  FINALIZADA="Finalizada",
+  APROVADA = "Aprovada",
+  PENDENTE = "Pendente",
+  FINALIZADA = "Finalizada",
 }
 
 export type TipoOrdemDeProducao = {
@@ -15,24 +15,64 @@ export type TipoOrdemDeProducao = {
 
 export default function OrdemDeProducao(ordemDeProducao: TipoOrdemDeProducao) {
   return (
-    <View>
+    <View style={styles.container}>
       <Text
-        style={styles.ordemDeProducao}
+        style={styles.ordemDeProducaoState}
         lightColor="rgba(0,0,0,0.8)"
         darkColor="rgba(255,255,255,0.8)"
       >
-        {ordemDeProducao.state}:{ordemDeProducao?.id}
+        {ordemDeProducao.state}
       </Text>
+      <Text
+        style={styles.ordemDeProducaoId}
+        lightColor="rgba(0,0,0,0.8)"
+        darkColor="rgba(255,255,255,0.8)"
+      >
+        {ordemDeProducao?.id}
+      </Text>
+      <Pressable
+        style={styles.button}
+        onPress={() => alert(`Deu certo!: ${ordemDeProducao.id}`)}
+      >
+        <Text style={styles.buttonLabel}>Editar</Text>
+      </Pressable>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  ordemDeProducao: {
-    fontSize: 17,
-    lineHeight: 50,
-    textAlign: "left",
+  container: {
+    display: "flex",
+    flexDirection: "row",
+    height: 50,
+    padding: 0,
+    margin: 0,
+    fontSize: 20,
+  },
+  ordemDeProducaoState: {
+    flex: 5,
     paddingLeft: 15,
-    paddingRight: 15,
+    margin: 0,
+    color: "#000",
+    verticalAlign: "middle"
+  },
+  ordemDeProducaoId: {
+    flex: 5,
+    paddingLeft: 15,
+    margin: 0,
+    color: "#000",
+    verticalAlign: "middle"
+  },
+  button: {
+    flex: 2,
+    borderRadius: 0,
+    padding: 15,
+    margin: 0,
+    alignItems: "center",
+    verticalAlign: "middle",
+    backgroundColor: "green",
+  },
+  buttonLabel: {
+    color: "#000",
   },
 });

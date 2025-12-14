@@ -14,7 +14,7 @@ export default function AbaOrdemDeProducao() {
     },
     {
       id: "1234567891",
-      state: EstadoOrdemDeProducao.APROVADA,
+      state: EstadoOrdemDeProducao.PENDENTE,
     },
     {
       id: "1234567892",
@@ -26,11 +26,11 @@ export default function AbaOrdemDeProducao() {
     },
     {
       id: "1234567894",
-      state: EstadoOrdemDeProducao.APROVADA,
+      state: EstadoOrdemDeProducao.PENDENTE,
     },
     {
       id: "1234567895",
-      state: EstadoOrdemDeProducao.APROVADA,
+      state: EstadoOrdemDeProducao.FINALIZADA,
     },
   ];
 
