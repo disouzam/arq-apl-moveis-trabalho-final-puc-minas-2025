@@ -1,26 +1,21 @@
 import { Pressable, StyleSheet, View, Text } from "react-native";
+import CampoApontamento from "../CampoApontamento";
+import { DadosOrdemDeProducao } from "@/models/DadosOrdemDeProducao";
 
 export default function AbaApontamentos() {
+    const dados: DadosOrdemDeProducao = {
+        idDaOrdemDeProducao: "9296188434",
+        etapa: ["Corte"],
+        inicio: [new Date(Date.UTC(2025,12,8,12,45,0)) ],
+        final: undefined
+    }
+
   return (
     <View style={styles.container}>
-      <View style={styles.row}>
-        <Text style={styles.label}>Ordem de Produção</Text>
-        <Text style={styles.dataOrAction}>9296188434</Text>
-      </View>
-      <View style={styles.row}>
-        <Text style={styles.label}>Etapa</Text>
-        <Text style={styles.dataOrAction}>Corte</Text>
-      </View>
-      <View style={styles.row}>
-        <Text style={styles.label}>Início</Text>
-        <Text style={styles.dataOrAction}>08/12/2025 9:45</Text>
-      </View>
-      <View style={styles.row}>
-        <Text style={styles.label}>Final</Text>
-        <Pressable style={styles.dataOrAction}>
-          <Text>Gravar final</Text>
-        </Pressable>
-      </View>
+      <CampoApontamento label="Ordem de Produção" idDoCampo="idDaOrdemDeProducao" dados={dados} indexEtapa={0}></CampoApontamento>
+      <CampoApontamento label="Etapa" idDoCampo="etapa" dados={dados} indexEtapa={0}></CampoApontamento>
+      <CampoApontamento label="Início" idDoCampo="inicio" dados={dados} indexEtapa={0}></CampoApontamento>
+      <CampoApontamento label="Final" idDoCampo="final" dados={dados} indexEtapa={0}></CampoApontamento>
     </View>
   );
 }
