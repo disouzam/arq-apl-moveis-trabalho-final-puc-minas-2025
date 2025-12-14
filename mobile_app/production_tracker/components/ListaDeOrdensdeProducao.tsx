@@ -1,5 +1,6 @@
 import React from "react";
-import OrdemDeProducao, { TipoOrdemDeProducao } from "./OrdemDeProducao";
+import OrdemDeProducao from "./OrdemDeProducao";
+import { TipoOrdemDeProducao } from "@/models/TipoOrdemDeProducao";
 
 type Props = {
   ordens: TipoOrdemDeProducao[];
