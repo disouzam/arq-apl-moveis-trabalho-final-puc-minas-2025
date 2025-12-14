@@ -10,8 +10,7 @@ export default function ListaDeOrdensdeProducao(
   props: Props
 ) {
   const items: React.JSX.Element[] = props.ordens.map((o) => (
-    <OrdemDeProducao id={o.id} state={o.state}></OrdemDeProducao>
+    <OrdemDeProducao key={o.id} id={o.id} state={o.state}></OrdemDeProducao>
   ));
-
   return <>{items}</>;
 }
