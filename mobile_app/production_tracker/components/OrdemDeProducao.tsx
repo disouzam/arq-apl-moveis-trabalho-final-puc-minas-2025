@@ -41,12 +41,6 @@ export default function OrdemDeProducao(ordemDeProducao: TipoOrdemDeProducao) {
       verticalAlign: "middle",
       backgroundColor: "yellow",
     },
-    activeButton: {
-      backgroundColor: Colors[colorScheme ?? "light"].tint,
-    },
-    inactiveButton: {
-      backgroundColor: Colors[colorScheme ?? "light"].tabIconDefault,
-    },
     buttonLabel: {
       color: "#000",
       fontWeight: "bold",
@@ -62,9 +56,19 @@ export default function OrdemDeProducao(ordemDeProducao: TipoOrdemDeProducao) {
 
   const buttonStyle = (estado: EstadoOrdemDeProducao) => {
     if (isButtonEnabled(estado)) {
-      return [styles.button, styles.activeButton];
+      return [
+        styles.button,
+        {
+          backgroundColor: Colors[colorScheme ?? "light"].tint,
+        },
+      ];
     }
-    return [styles.button, styles.inactiveButton];
+    return [
+      styles.button,
+      {
+        backgroundColor: Colors[colorScheme ?? "light"].tabIconDefault,
+      },
+    ];
   };
 
   const buttonLabel = (estado: EstadoOrdemDeProducao) => {
