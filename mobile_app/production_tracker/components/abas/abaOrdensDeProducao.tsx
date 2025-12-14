@@ -1,10 +1,8 @@
 import { StyleSheet } from "react-native";
 
-import {
-  TipoOrdemDeProducao,
-  EstadoOrdemDeProducao,
-} from "@/components/OrdemDeProducao";
 import ListaDeOrdensdeProducao from "@/components/ListaDeOrdensdeProducao";
+import { TipoOrdemDeProducao } from "@/models/TipoOrdemDeProducao";
+import { EstadoOrdemDeProducao } from "@/models/enums/EstadoOrdemDeProducao";
 
 export default function AbaOrdemDeProducao() {
   const dados: TipoOrdemDeProducao[] = [

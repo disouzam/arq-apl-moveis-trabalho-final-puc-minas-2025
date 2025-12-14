@@ -1,17 +1,7 @@
 import React from "react";
 import { Text, View } from "./Themed";
 import { StyleSheet, Pressable } from "react-native";
-
-export enum EstadoOrdemDeProducao {
-  APROVADA = "Aprovada",
-  PENDENTE = "Pendente",
-  FINALIZADA = "Finalizada",
-}
-
-export type TipoOrdemDeProducao = {
-  id: string;
-  state: EstadoOrdemDeProducao;
-};
+import { TipoOrdemDeProducao } from "@/models/TipoOrdemDeProducao";
 
 export default function OrdemDeProducao(ordemDeProducao: TipoOrdemDeProducao) {
   return (
