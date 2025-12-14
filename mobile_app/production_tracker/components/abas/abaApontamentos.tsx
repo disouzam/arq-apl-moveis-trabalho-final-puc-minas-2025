@@ -6,16 +6,13 @@ export default function AbaApontamentos() {
     const dados: DadosOrdemDeProducao = {
         idDaOrdemDeProducao: "9296188434",
         etapa: ["Corte"],
-        inicio: [new Date(Date.UTC(2025,12,8,12,45,0)) ],
-        final: undefined
+        inicio: [new Date(Date.UTC(2025,11,8,12,45,0)) ],
+        final: []
     }
 
   return (
     <View style={styles.container}>
-      <CampoApontamento label="Ordem de Produção" idDoCampo="idDaOrdemDeProducao" dados={dados} indexEtapa={0}></CampoApontamento>
-      <CampoApontamento label="Etapa" idDoCampo="etapa" dados={dados} indexEtapa={0}></CampoApontamento>
-      <CampoApontamento label="Início" idDoCampo="inicio" dados={dados} indexEtapa={0}></CampoApontamento>
-      <CampoApontamento label="Final" idDoCampo="final" dados={dados} indexEtapa={0}></CampoApontamento>
+      <CampoApontamento dados={dados} indexEtapa={0}></CampoApontamento>
     </View>
   );
 }
