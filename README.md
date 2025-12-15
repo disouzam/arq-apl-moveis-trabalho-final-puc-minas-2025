@@ -136,14 +136,14 @@ dotnet new list > dotnet-templates.txt
 ```bash
 mkdir backend
 cd backend
-dotnet new webapi --use-controllers --use-program-main --name production_tracker_api
+dotnet new webapi --use-controllers --use-program-main --name productionTrackerApi
 ```
 
 - Para rodar a API escrita em C# / .NET (considerando que o ponto de partida é a raiz do repositório):
 
 ```bash
 cd backend
-cd production_tracker_api
+cd productionTrackerApi
 dotnet run --launch-profile http & curl http://localhost:5006/weatherforecast & echo # teste da aplicação template, sem modificações
 ```
 # Desenho das telas principais no Figma - versão gratuita

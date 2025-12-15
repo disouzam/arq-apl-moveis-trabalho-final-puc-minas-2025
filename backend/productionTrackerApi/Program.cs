@@ -1,5 +1,5 @@
 
-namespace production_tracker_api;
+namespace productionTrackerApi;
 
 public class Program
 {

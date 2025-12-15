@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace production_tracker_api.Controllers;
+namespace productionTrackerApi.Controllers;
 
 [ApiController]
 [Route("[controller]")]
