@@ -136,7 +136,7 @@ dotnet new list > dotnet-templates.txt
 ```bash
 mkdir backend
 cd backend
-dotnet new webapi --use-controllers --name production_tracker_api
+dotnet new webapi --use-controllers --use-program-main --name production_tracker_api
 ```
 
 - Para rodar a API escrita em C# / .NET (considerando que o ponto de partida é a raiz do repositório):
