@@ -159,6 +159,14 @@ cd productionTrackerApi
 dotnet add package Microsoft.Extensions.ApiDescription.Server --version 9.0.11
 ```
 
+Instalação da ferramenta CLI dotnet-api:
+
+Referência: [Microsoft.dotnet-openapi](https://www.nuget.org/packages/Microsoft.dotnet-openapi)
+
+```bash
+dotnet tool install Microsoft.dotnet-openapi --version 9.0.11
+```
+
 # Desenho das telas principais no Figma - versão gratuita
 
 Como suporte para o desenvolvimento e parte dos requisitios do trabalho final, as telas principais do aplicativo em desenvolvimento estão sendo construídas usando o Figma, versão gratuita.
