@@ -146,6 +146,13 @@ cd backend
 cd productionTrackerApi
 dotnet run --launch-profile http & curl http://localhost:5006/weatherforecast & echo # teste da aplicação template, sem modificações
 ```
+
+### Instalação do Swashbuckle e configuração
+
+```bash
+dotnet add TodoApi.csproj package Swashbuckle.AspNetCore -v 6.6.2
+```
+
 # Desenho das telas principais no Figma - versão gratuita
 
 Como suporte para o desenvolvimento e parte dos requisitios do trabalho final, as telas principais do aplicativo em desenvolvimento estão sendo construídas usando o Figma, versão gratuita.
