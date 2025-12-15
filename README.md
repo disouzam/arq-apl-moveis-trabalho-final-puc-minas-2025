@@ -144,8 +144,21 @@ dotnet new webapi --use-controllers --use-program-main --name productionTrackerA
 ```bash
 cd backend
 cd productionTrackerApi
-dotnet run --launch-profile http & curl http://localhost:5006/weatherforecast & echo # teste da aplicação template, sem modificações
+dotnet run --launch-profile https & curl https://localhost:5001/weatherforecast & echo # teste da aplicação template, sem modificações
 ```
+
+### Configuração básica para geração da documentação OpenAPI em tempo de build
+
+Referência: [Generate OpenAPI documents](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/openapi/aspnetcore-openapi?view=aspnetcore-9.0)
+
+Comando executado
+
+```bash
+cd backend
+cd productionTrackerApi
+dotnet add package Microsoft.Extensions.ApiDescription.Server --version 9.0.11
+```
+
 # Desenho das telas principais no Figma - versão gratuita
 
 Como suporte para o desenvolvimento e parte dos requisitios do trabalho final, as telas principais do aplicativo em desenvolvimento estão sendo construídas usando o Figma, versão gratuita.
