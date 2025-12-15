@@ -31,7 +31,7 @@ Exemplo caso o tema seja restaurante:
 - Nome
 - Descrição
 - Preço
-- Imagem 
+- Imagem
 
 #### 📋 5. Listagem
 - Lista vertical com imagem à esquerda
@@ -53,7 +53,7 @@ Exemplo caso o tema seja restaurante:
 
 📺 Assista ao vídeo de apresentação do app pelo link abaixo:
 
-🔗 [Link para o vídeo no YouTube](https://youtube.com/seu-video-aqui)  
+🔗 [Link para o vídeo no YouTube](https://youtube.com/seu-video-aqui)
 *(ou adicione o arquivo de vídeo na pasta do projeto)*
 
 ### 🔗 Repositório (em construção)
@@ -76,7 +76,7 @@ Este repositório contém todo o código-fonte do projeto, bem como os recursos 
 
 A aplicação móvel será desenvolvida em [React Native](https://reactnative.dev/) usando o [framework Expo](https://docs.expo.dev/) para auxiliar no desenvolvimento e testes e, potencialmente, na publicação da aplicação em alguma loja de aplicativos. Ao longo dessa e das próximas seções, serão apresentados os ferramentais e bibliotecas utilizadas na construção da aplicação mas não será o intuito explicar em detalhes como configurar o computador de forma completa para reproduzir esse projeto. Caso alguma informação esteja em falta, registre uma `issue` no repositório que avaliarei a inclusão e/ou correção de informações importantes.
 
-- Versão do Node e do npm (consulte o site oficial do node para obter a versão LTS em um momento futuro - [Download Node.js](https://nodejs.org/en/download)): 
+- Versão do Node e do npm (consulte o site oficial do node para obter a versão LTS em um momento futuro - [Download Node.js](https://nodejs.org/en/download)):
 
 ```bash
 node -v
@@ -114,12 +114,12 @@ A imagem a seguir mostra o conteúdo nas duas abas da aplicação de exemplo ger
 
 Para a API da aplicação, será usado um projeto em ASP.NET MVC dada a minha atual familiaridade com esse ecossistema e facilidade de encontrar exemplos de configuração.
 
-Nesse momento, será feita apenas a criação de uma aplicação template para dar início à criação do esqueleto do conjunto aplicação mobile + backend. 
+Nesse momento, será feita apenas a criação de uma aplicação template para dar início à criação do esqueleto do conjunto aplicação mobile + backend.
 
 A API pode ser criada tanto usando o Visual Studio Community 2022, que é gratuito para projetos open source e desenvolvedores individuais (veja a documentação oficial para os limites de uso do Visual Studio Community 2022 - [VS Community](https://visualstudio.microsoft.com/vs/community))
 
 - Versão em uso do dotnet:
-  
+
 ```bash
 dotnet --version
 # 9.0.307
@@ -136,7 +136,7 @@ dotnet new list > dotnet-templates.txt
 ```bash
 mkdir backend
 cd backend
-dotnet new webapi --name production_tracker_api
+dotnet new webapi --use-controllers --name production_tracker_api
 ```
 
 - Para rodar a API escrita em C# / .NET (considerando que o ponto de partida é a raiz do repositório):
@@ -159,7 +159,7 @@ As primeiras duas telas estão prontas e já permitem uma primeira iteração no
 <div style="display:flex;">
     <div style="display:box;width:30%">
         <a href="./docs/images/01_primeira_tela_Figma.png" width="30%" style="display:block"/>
-            Tela 1: Visualização das ordens de produção 
+            Tela 1: Visualização das ordens de produção
         </a>
         <br/><br/><br/>
         <img src="./docs/images/01_primeira_tela_Figma.png" width="30%" style="display:block"/>
