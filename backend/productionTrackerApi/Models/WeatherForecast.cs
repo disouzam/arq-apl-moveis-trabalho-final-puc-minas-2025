@@ -1,6 +1,6 @@
 using System;
 
-namespace productionTrackerApi;
+namespace productionTrackerApi.Models;
 
 public class WeatherForecast
 {
