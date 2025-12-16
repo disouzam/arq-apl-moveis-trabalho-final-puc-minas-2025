@@ -1,8 +1,8 @@
 {
-  "openapi": "3.0.1",
+  "openapi": "3.0.4",
   "info": {
-    "title": "productionTrackerApi | v1",
-    "version": "1.0.0"
+    "title": "productionTrackerApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+    "version": "1.0"
   },
   "paths": {
     "/ProductionOrder": {
@@ -43,45 +43,6 @@
           }
         }
       }
-    },
-    "/WeatherForecast": {
-      "get": {
-        "tags": [
-          "WeatherForecast"
-        ],
-        "operationId": "GetWeatherForecast",
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/WeatherForecast"
-                  }
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/WeatherForecast"
-                  }
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/WeatherForecast"
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
     }
   },
   "components": {
@@ -90,59 +51,35 @@
         "type": "object",
         "properties": {
           "id": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           },
           "stepName": {
             "type": "array",
             "items": {
               "type": "string"
-            }
+            },
+            "nullable": true
           },
           "start": {
             "type": "array",
             "items": {
               "type": "string",
               "format": "date-time"
-            }
+            },
+            "nullable": true
           },
           "end": {
             "type": "array",
             "items": {
               "type": "string",
               "format": "date-time"
-            }
-          }
-        }
-      },
-      "WeatherForecast": {
-        "type": "object",
-        "properties": {
-          "date": {
-            "type": "string",
-            "format": "date"
-          },
-          "temperatureC": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "temperatureF": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "summary": {
-            "type": "string",
+            },
             "nullable": true
           }
-        }
+        },
+        "additionalProperties": false
       }
     }
-  },
-  "tags": [
-    {
-      "name": "ProductionOrder"
-    },
-    {
-      "name": "WeatherForecast"
-    }
-  ]
+  }
 }

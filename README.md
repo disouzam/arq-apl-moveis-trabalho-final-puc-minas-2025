@@ -150,7 +150,14 @@ dotnet run --launch-profile http & curl http://localhost:5006/weatherforecast & 
 ### Instalação do Swashbuckle e configuração
 
 ```bash
-dotnet add TodoApi.csproj package Swashbuckle.AspNetCore -v 6.6.2
+cd backend
+cd productionTrackerApi
+dotnet add productionTrackerApi.csproj package Swashbuckle.AspNetCore -v 6.6.2
+# Criação do arquivo de manifesto
+cd ..
+dotnet new tool-manifest
+# Instalação da ferramenta SwashBuckle.AspNetCore.Cli
+dotnet tool install SwashBuckle.AspNetCore.Cli
 ```
 
 # Desenho das telas principais no Figma - versão gratuita
