@@ -1,7 +1,10 @@
 using Microsoft.AspNetCore.Builder;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+
+using productionTrackerApi.Context;
 
 namespace productionTrackerApi;
 
@@ -24,7 +27,20 @@ public class Program
             });
         });
 
+        builder.Services.AddDbContext<ProductionTrackerContext>(options =>
+        {
+            options.UseSqlServer("Server=LAPTOPDICKSON\\SQL2022DEVELOPER;Database=production-tracker;Trusted_Connection=True;TrustServerCertificate=True;MultipleActiveResultSets=true");
+        });
+
         var app = builder.Build();
+
+        // get the context from the service collection
+        using(var scope = app.Services.CreateScope())
+        {
+            var context = scope.ServiceProvider.GetRequiredService<ProductionTrackerContext>();
+            context.Database.OpenConnection();
+            context.Database.EnsureCreated(); 
+        }   
 
         // Configure the HTTP request pipeline.
         if (app.Environment.IsDevelopment())
