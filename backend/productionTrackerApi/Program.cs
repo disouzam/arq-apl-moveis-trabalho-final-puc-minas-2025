@@ -2,7 +2,6 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
 
 using productionTrackerApi.Context;
@@ -27,6 +26,13 @@ public class Program
                 Description = "An ASP.NET Core Web API for managing Production orders and tracking information",
             });
         });
+
+        // https://stackoverflow.com/questions/65163728/how-to-json-serialize-without-cyclic-error/79663678#79663678
+        builder.Services.Configure<Microsoft.AspNetCore.Http.Json.JsonOptions>(options =>
+        {
+            options.SerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.IgnoreCycles;
+        });
+
 
         builder.Services.AddDbContext<ProductionTrackerContext>(options =>
         {
