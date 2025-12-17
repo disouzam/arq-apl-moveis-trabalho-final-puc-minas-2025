@@ -38,8 +38,8 @@ public class Program
         using(var scope = app.Services.CreateScope())
         {
             var context = scope.ServiceProvider.GetRequiredService<ProductionTrackerContext>();
-            context.Database.OpenConnection();
             context.Database.EnsureCreated(); 
+            context.Database.OpenConnection();
         }   
 
         // Configure the HTTP request pipeline.
