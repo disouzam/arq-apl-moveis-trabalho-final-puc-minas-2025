@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace productionTrackerApi.Models;
 
@@ -6,10 +7,5 @@ public class ProductionOrder
 {
     public string Id { get; set; }
 
-    public  string[] StepName { get; set; }
-
-    public DateTime[] Start { get; set; }
-
-    public DateTime[] End { get; set; }
-
+    public List<Step> Steps { get; set;}
 }

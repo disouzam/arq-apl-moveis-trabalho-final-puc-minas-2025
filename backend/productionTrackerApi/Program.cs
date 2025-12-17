@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
 
 using productionTrackerApi.Context;
@@ -29,7 +30,10 @@ public class Program
 
         builder.Services.AddDbContext<ProductionTrackerContext>(options =>
         {
-            options.UseSqlServer("Server=LAPTOPDICKSON\\SQL2022DEVELOPER;Database=production-tracker;Trusted_Connection=True;TrustServerCertificate=True;MultipleActiveResultSets=true");
+            var connString = @"Data Source=LAPTOPDICKSON\SQL2022DEVELOPER;Initial Catalog=production-tracker;Integrated Security=True;Trusted_Connection=True;TrustServerCertificate=True;MultipleActiveResultSets=true;ConnectRetryCount=3";
+
+            // Source - https://stackoverflow.com/questions/63830786/is-enableretryonfailure-valid-way-for-solving-database-deadlocks-does-it-have/78453897#78453897
+            options.UseSqlServer(connString, options => options.EnableRetryOnFailure());
         });
 
         var app = builder.Build();
@@ -38,12 +42,11 @@ public class Program
         using(var scope = app.Services.CreateScope())
         {
             var context = scope.ServiceProvider.GetRequiredService<ProductionTrackerContext>();
-            context.Database.EnsureCreated(); 
-            context.Database.OpenConnection();
-        }   
+            context.Database.Migrate();
+        }
 
         // Configure the HTTP request pipeline.
-        if (app.Environment.IsDevelopment())
+        if(app.Environment.IsDevelopment())
         {
             app.UseSwagger(c => { c.OpenApiVersion = Microsoft.OpenApi.OpenApiSpecVersion.OpenApi3_0; });
             app.UseSwaggerUI(options =>
