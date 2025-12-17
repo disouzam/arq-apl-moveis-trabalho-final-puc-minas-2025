@@ -42,7 +42,7 @@ public class Program
         using(var scope = app.Services.CreateScope())
         {
             var context = scope.ServiceProvider.GetRequiredService<ProductionTrackerContext>();
-            context.Database.Migrate();
+            app.MigrateAndSeed(context);
         }
 
         // Configure the HTTP request pipeline.
