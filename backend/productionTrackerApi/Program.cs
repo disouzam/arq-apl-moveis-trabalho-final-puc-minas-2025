@@ -16,7 +16,11 @@ public class Program
 
         // Add services to the container.
 
-        builder.Services.AddControllers();
+        builder.Services.AddControllers().AddJsonOptions(options =>
+        {
+            options.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.IgnoreCycles;
+        });
+
         builder.Services.AddSwaggerGen(options =>
         {
             options.SwaggerDoc("v1", new OpenApiInfo
@@ -26,13 +30,6 @@ public class Program
                 Description = "An ASP.NET Core Web API for managing Production orders and tracking information",
             });
         });
-
-        // https://stackoverflow.com/questions/65163728/how-to-json-serialize-without-cyclic-error/79663678#79663678
-        builder.Services.Configure<Microsoft.AspNetCore.Http.Json.JsonOptions>(options =>
-        {
-            options.SerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.IgnoreCycles;
-        });
-
 
         builder.Services.AddDbContext<ProductionTrackerContext>(options =>
         {
