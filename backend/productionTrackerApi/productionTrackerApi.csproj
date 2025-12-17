@@ -18,8 +18,11 @@
     <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="9.0.6" />
   </ItemGroup>
 
-  <Target Name="CreateSwaggerJson" AfterTargets="Build" Condition="$(Configuration)=='Debug'">
-    <Exec Command="dotnet swagger tofile --output productionTrackerApi.json $(OutputPath)$(AssemblyName).dll v1" WorkingDirectory="$(ProjectDir)" />
+  <Target Name="CreateSwaggerJson" AfterTargets="Build" Condition="$(Configuration)=='LOCALDEVELOPMENT'">
+    <Exec Command="del productionTrackerApi.json \
+          dotnet tool restore \
+          dotnet swagger tofile --output productionTrackerApi.json $(OutputPath)$(AssemblyName).dll v1" 
+          WorkingDirectory="$(ProjectDir)" />
   </Target>
 
 </Project>
