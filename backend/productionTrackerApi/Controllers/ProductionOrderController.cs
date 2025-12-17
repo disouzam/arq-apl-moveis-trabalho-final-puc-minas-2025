@@ -1,8 +1,11 @@
 using System.Collections.Generic;
+using System.Linq;
 
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
+using productionTrackerApi.Context;
 using productionTrackerApi.Models;
 
 namespace productionTrackerApi.Controllers;
@@ -11,27 +14,28 @@ namespace productionTrackerApi.Controllers;
 [Route("[controller]")]
 public class ProductionOrderController : ControllerBase
 {
-    private static readonly List<ProductionOrder> ProductionOrderExample = new List<ProductionOrder>()
-    {
-        //new ProductionOrder()
-        //{
-        //    Id= "9296188434",
-        //    StepName=["Corte"],
-        //    Start=[new DateTime(2025,11,8,12,45,0)],
-        //    End=[]
-        //}
-    };
-
     private readonly ILogger<ProductionOrderController> _logger;
+    private readonly ProductionTrackerContext _context;
 
-    public ProductionOrderController(ILogger<ProductionOrderController> logger)
+    public ProductionOrderController(ILogger<ProductionOrderController> logger, ProductionTrackerContext context)
     {
         _logger = logger;
+        _context = context;
     }
 
     [HttpGet(Name = "GetProductionOrders")]
     public IEnumerable<ProductionOrder> Get()
     {
-        return ProductionOrderExample;
+        var productionOrders = _context.ProductionOrders
+            .Where(po => true)
+            .Include(po => po.Steps)
+            .ToList();
+
+        if(productionOrders == null)
+        {
+            return new List<ProductionOrder>();
+        }
+
+        return productionOrders;
     }
 }
