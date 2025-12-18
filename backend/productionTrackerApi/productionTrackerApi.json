@@ -55,43 +55,28 @@
             "type": "string",
             "nullable": true
           },
-          "steps": {
+          "stepNames": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Step"
+              "type": "string"
             },
             "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "Step": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int32"
           },
-          "name": {
-            "type": "string",
+          "startTimes": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "date-time"
+            },
             "nullable": true
           },
-          "start": {
-            "type": "string",
-            "format": "date-time",
+          "endTimes": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "date-time"
+            },
             "nullable": true
-          },
-          "end": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "productionOrderId": {
-            "type": "string",
-            "nullable": true
-          },
-          "productionOrder": {
-            "$ref": "#/components/schemas/ProductionOrder"
           }
         },
         "additionalProperties": false
