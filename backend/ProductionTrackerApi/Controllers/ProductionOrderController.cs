@@ -7,7 +7,8 @@ using Microsoft.Extensions.Logging;
 
 using ProductionTrackerApi.Context;
 using ProductionTrackerApi.Extensions;
-using ProductionTrackerApi.Models;
+
+using Dto = ProductionTrackerApi.DataTransferObjects;
 
 namespace ProductionTrackerApi.Controllers;
 
@@ -25,14 +26,14 @@ public class ProductionOrderController : ControllerBase
     }
 
     [HttpGet(Name = "GetProductionOrders")]
-    public IEnumerable<DataTransferObjects.ProductionOrder> Get()
+    public IEnumerable<Dto.ProductionOrder> Get()
     {
         var productionOrders = _context.ProductionOrders
             .Where(po => true)
             .Include(po => po.Steps)
             .ToList();
 
-        var response = new List<DataTransferObjects.ProductionOrder>();
+        var response = new List<Dto.ProductionOrder>();
 
         foreach(var productionOrder in productionOrders)
         {

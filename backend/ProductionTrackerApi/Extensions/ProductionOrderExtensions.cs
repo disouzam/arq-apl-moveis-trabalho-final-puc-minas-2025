@@ -1,12 +1,16 @@
 ﻿using System;
 
+using Dto = ProductionTrackerApi.DataTransferObjects;
+using Model = ProductionTrackerApi.Models;
+
 namespace ProductionTrackerApi.Extensions;
 
 public static class ProductionOrderExtensions
 {
-    public static DataTransferObjects.ProductionOrder ConvertToProductionOrderDto(this Models.ProductionOrder productionOrderModel)
+    public static Dto.ProductionOrder ConvertToProductionOrderDto(
+        this Model.ProductionOrder productionOrderModel)
     {
-        var dto = new DataTransferObjects.ProductionOrder();
+        var dto = new Dto.ProductionOrder();
          dto.Id = productionOrderModel.Id;
 
         foreach(var step in productionOrderModel.Steps) {
