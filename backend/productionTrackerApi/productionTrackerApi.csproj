@@ -19,10 +19,7 @@
   </ItemGroup>
 
   <Target Name="CreateSwaggerJson" AfterTargets="Build" Condition="$(Configuration)=='LOCALDEVELOPMENT'">
-    <Exec Command="del productionTrackerApi.json \
-          dotnet tool restore \
-          dotnet swagger tofile --output productionTrackerApi.json $(OutputPath)$(AssemblyName).dll v1" 
-          WorkingDirectory="$(ProjectDir)" />
+    <Exec Command="del productionTrackerApi.json \&#xD;&#xA;          dotnet tool restore \&#xD;&#xA;          dotnet swagger tofile --output productionTrackerApi.json $(OutputPath)$(AssemblyName).dll v1" WorkingDirectory="$(ProjectDir)" />
   </Target>
 
 </Project>
