@@ -6,8 +6,13 @@
         {
             "label": "Generate OpenAPI documentation",
             "type": "shell",
-            "command": "dotnet swagger tofile --output productionTrackerApi.json bin/Debug/net9.0/productionTrackerApi.dll v1",
-            "options": {"cwd": "${workspaceFolder}/backend/productionTrackerApi"}
+            "command": "dotnet swagger tofile --output ProductionTrackerApi.json bin/Debug/net9.0/ProductionTrackerApi.dll v1",
+            "options": {
+                "cwd": "${workspaceFolder}/backend/ProductionTrackerApi"
+            },
+            "problemMatcher": [
+                "$msCompile"
+            ]
         }
     ]
 }

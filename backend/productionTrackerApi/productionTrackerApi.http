@@ -1,5 +1,0 @@
-@productionTrackerApi_HostAddress = https://localhost:5001
-
-GET {{productionTrackerApi_HostAddress}}/productionorder
-
-###

@@ -136,14 +136,14 @@ dotnet new list > dotnet-templates.txt
 ```bash
 mkdir backend
 cd backend
-dotnet new webapi --use-controllers --use-program-main --name productionTrackerApi
+dotnet new webapi --use-controllers --use-program-main --name ProductionTrackerApi
 ```
 
 - Para rodar a API escrita em C# / .NET (considerando que o ponto de partida é a raiz do repositório):
 
 ```bash
 cd backend
-cd productionTrackerApi
+cd ProductionTrackerApi
 dotnet run --launch-profile http & curl http://localhost:5006/weatherforecast & echo # teste da aplicação template, sem modificações
 ```
 
@@ -151,8 +151,8 @@ dotnet run --launch-profile http & curl http://localhost:5006/weatherforecast & 
 
 ```bash
 cd backend
-cd productionTrackerApi
-dotnet add productionTrackerApi.csproj package Swashbuckle.AspNetCore -v 6.6.2
+cd ProductionTrackerApi
+dotnet add ProductionTrackerApi.csproj package Swashbuckle.AspNetCore -v 6.6.2
 # Criação do arquivo de manifesto
 cd ..
 dotnet new tool-manifest

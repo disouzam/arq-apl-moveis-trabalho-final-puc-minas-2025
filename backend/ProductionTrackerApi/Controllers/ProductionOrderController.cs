@@ -5,10 +5,12 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
-using productionTrackerApi.Context;
-using productionTrackerApi.Models;
+using ProductionTrackerApi.Context;
+using ProductionTrackerApi.Extensions;
 
-namespace productionTrackerApi.Controllers;
+using Dto = ProductionTrackerApi.DataTransferObjects;
+
+namespace ProductionTrackerApi.Controllers;
 
 [ApiController]
 [Route("[controller]")]
@@ -24,18 +26,20 @@ public class ProductionOrderController : ControllerBase
     }
 
     [HttpGet(Name = "GetProductionOrders")]
-    public IEnumerable<ProductionOrder> Get()
+    public IEnumerable<Dto.ProductionOrder> Get()
     {
         var productionOrders = _context.ProductionOrders
             .Where(po => true)
             .Include(po => po.Steps)
             .ToList();
 
-        if(productionOrders == null)
+        var response = new List<Dto.ProductionOrder>();
+
+        foreach(var productionOrder in productionOrders)
         {
-            return new List<ProductionOrder>();
+            response.Add(productionOrder.ConvertToProductionOrderDto());
         }
 
-        return productionOrders;
+        return response;
     }
 }

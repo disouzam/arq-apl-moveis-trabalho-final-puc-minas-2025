@@ -5,10 +5,10 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
-using productionTrackerApi.Context;
-using productionTrackerApi.Models;
+using ProductionTrackerApi.Context;
+using ProductionTrackerApi.Models;
 
-namespace productionTrackerApi;
+namespace ProductionTrackerApi;
 
 public static class DatabaseMigration
 {

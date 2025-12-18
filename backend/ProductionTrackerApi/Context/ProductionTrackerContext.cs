@@ -1,10 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-using productionTrackerApi.Models;
+using ProductionTrackerApi.Models;
 
 using static System.Net.WebRequestMethods;
 
-namespace productionTrackerApi.Context;
+namespace ProductionTrackerApi.Context;
 
 public class ProductionTrackerContext : DbContext
 {
