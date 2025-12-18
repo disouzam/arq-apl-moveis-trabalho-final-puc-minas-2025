@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace productionTrackerApi.DataTransferModels;
+namespace ProductionTrackerApi.DataTransferModels;
 
 public class ProductionOrder
 {

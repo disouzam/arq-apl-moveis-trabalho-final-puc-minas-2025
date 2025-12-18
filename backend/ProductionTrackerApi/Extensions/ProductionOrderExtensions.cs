@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace productionTrackerApi.Extensions;
+namespace ProductionTrackerApi.Extensions;
 
 public static class ProductionOrderExtensions
 {
@@ -9,7 +9,7 @@ public static class ProductionOrderExtensions
         var dto = new DataTransferModels.ProductionOrder();
          dto.Id = productionOrderModel.Id;
 
-        foreach(var step in productionOrderModel.Steps) { 
+        foreach(var step in productionOrderModel.Steps) {
             dto.StepNames.Add(step.Name);
 
             if (step.Start != null)

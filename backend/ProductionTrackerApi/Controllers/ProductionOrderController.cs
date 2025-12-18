@@ -5,11 +5,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
-using productionTrackerApi.Context;
-using productionTrackerApi.Extensions;
-using productionTrackerApi.Models;
+using ProductionTrackerApi.Context;
+using ProductionTrackerApi.Extensions;
+using ProductionTrackerApi.Models;
 
-namespace productionTrackerApi.Controllers;
+namespace ProductionTrackerApi.Controllers;
 
 [ApiController]
 [Route("[controller]")]

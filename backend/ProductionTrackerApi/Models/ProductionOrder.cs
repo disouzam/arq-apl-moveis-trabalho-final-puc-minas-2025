@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace productionTrackerApi.Models;
+namespace ProductionTrackerApi.Models;
 
 public class ProductionOrder
 {

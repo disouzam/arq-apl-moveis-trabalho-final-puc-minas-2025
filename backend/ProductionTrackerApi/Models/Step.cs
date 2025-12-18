@@ -1,6 +1,6 @@
 using System;
 
-namespace productionTrackerApi.Models;
+namespace ProductionTrackerApi.Models;
 
 public class Step
 {

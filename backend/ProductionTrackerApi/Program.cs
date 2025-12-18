@@ -4,9 +4,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 
-using productionTrackerApi.Context;
+using ProductionTrackerApi.Context;
 
-namespace productionTrackerApi;
+namespace ProductionTrackerApi;
 
 public class Program
 {
