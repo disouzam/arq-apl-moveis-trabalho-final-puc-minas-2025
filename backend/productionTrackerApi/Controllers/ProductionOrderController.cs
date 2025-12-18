@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
 using productionTrackerApi.Context;
+using productionTrackerApi.Extensions;
 using productionTrackerApi.Models;
 
 namespace productionTrackerApi.Controllers;
@@ -24,18 +25,20 @@ public class ProductionOrderController : ControllerBase
     }
 
     [HttpGet(Name = "GetProductionOrders")]
-    public IEnumerable<ProductionOrder> Get()
+    public IEnumerable<DataTransferModels.ProductionOrder> Get()
     {
         var productionOrders = _context.ProductionOrders
             .Where(po => true)
             .Include(po => po.Steps)
             .ToList();
 
-        if(productionOrders == null)
+        var response = new List<DataTransferModels.ProductionOrder>();
+
+        foreach(var productionOrder in productionOrders)
         {
-            return new List<ProductionOrder>();
+            response.Add(productionOrder.ConvertToProductionOrderDto());
         }
 
-        return productionOrders;
+        return response;
     }
 }
