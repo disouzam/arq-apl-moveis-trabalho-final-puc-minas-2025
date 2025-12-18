@@ -25,14 +25,14 @@ public class ProductionOrderController : ControllerBase
     }
 
     [HttpGet(Name = "GetProductionOrders")]
-    public IEnumerable<DataTransferModels.ProductionOrder> Get()
+    public IEnumerable<DataTransferObjects.ProductionOrder> Get()
     {
         var productionOrders = _context.ProductionOrders
             .Where(po => true)
             .Include(po => po.Steps)
             .ToList();
 
-        var response = new List<DataTransferModels.ProductionOrder>();
+        var response = new List<DataTransferObjects.ProductionOrder>();
 
         foreach(var productionOrder in productionOrders)
         {

@@ -4,9 +4,9 @@ namespace ProductionTrackerApi.Extensions;
 
 public static class ProductionOrderExtensions
 {
-    public static DataTransferModels.ProductionOrder ConvertToProductionOrderDto(this Models.ProductionOrder productionOrderModel)
+    public static DataTransferObjects.ProductionOrder ConvertToProductionOrderDto(this Models.ProductionOrder productionOrderModel)
     {
-        var dto = new DataTransferModels.ProductionOrder();
+        var dto = new DataTransferObjects.ProductionOrder();
          dto.Id = productionOrderModel.Id;
 
         foreach(var step in productionOrderModel.Steps) {
