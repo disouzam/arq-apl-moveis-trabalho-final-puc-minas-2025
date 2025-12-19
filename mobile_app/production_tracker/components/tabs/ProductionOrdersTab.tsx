@@ -3,7 +3,7 @@ import { TipoOrdemDeProducao } from "@/models/TipoOrdemDeProducao";
 import { EstadoOrdemDeProducao } from "@/models/enums/EstadoOrdemDeProducao";
 
 export default function ProductionOrdersTab() {
-  const dados: TipoOrdemDeProducao[] = [
+  const data: TipoOrdemDeProducao[] = [
     {
       id: "1234567890",
       state: EstadoOrdemDeProducao.APROVADA,
@@ -30,5 +30,5 @@ export default function ProductionOrdersTab() {
     },
   ];
 
-  return <ListaDeOrdensdeProducao ordens={dados}></ListaDeOrdensdeProducao>;
+  return <ListaDeOrdensdeProducao ordens={data}></ListaDeOrdensdeProducao>;
 }
