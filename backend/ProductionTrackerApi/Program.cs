@@ -8,8 +8,15 @@ using ProductionTrackerApi.Context;
 
 namespace ProductionTrackerApi;
 
+/// <summary>
+/// Entry point of Web Api
+/// </summary>
 public class Program
 {
+    /// <summary>
+    /// Enty method of Web Api that configures the application and runs it
+    /// </summary>
+    /// <param name="args">Arguments passed during Web Api initialization</param>
     public static void Main(string[] args)
     {
         var builder = WebApplication.CreateBuilder(args);

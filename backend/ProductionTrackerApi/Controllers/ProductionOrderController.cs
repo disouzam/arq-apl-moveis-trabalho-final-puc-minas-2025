@@ -12,6 +12,9 @@ using Dto = ProductionTrackerApi.DataTransferObjects;
 
 namespace ProductionTrackerApi.Controllers;
 
+/// <summary>
+/// Controller for Production Order endpoints
+/// </summary>
 [ApiController]
 [Route("[controller]")]
 public class ProductionOrderController : ControllerBase
@@ -19,12 +22,21 @@ public class ProductionOrderController : ControllerBase
     private readonly ILogger<ProductionOrderController> _logger;
     private readonly ProductionTrackerContext _context;
 
+    /// <summary>
+    /// Constructor for Dependency Injection container 
+    /// </summary>
+    /// <param name="logger">Logger instance</param>
+    /// <param name="context">Instance of database context</param>
     public ProductionOrderController(ILogger<ProductionOrderController> logger, ProductionTrackerContext context)
     {
         _logger = logger;
         _context = context;
     }
 
+    /// <summary>
+    /// Endpoint to get all production orders
+    /// </summary>
+    /// <returns></returns>
     [HttpGet(Name = "GetProductionOrders")]
     public IEnumerable<Dto.ProductionOrder> Get()
     {

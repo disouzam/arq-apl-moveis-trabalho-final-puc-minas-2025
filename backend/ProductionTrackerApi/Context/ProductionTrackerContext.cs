@@ -2,20 +2,38 @@
 
 using ProductionTrackerApi.Models;
 
-using static System.Net.WebRequestMethods;
-
 namespace ProductionTrackerApi.Context;
 
+/// <summary>
+/// Context of Production Tracker API's database
+/// </summary>
 public class ProductionTrackerContext : DbContext
 {
+    /// <summary>
+    /// Parameterless constructor
+    /// </summary>
     public ProductionTrackerContext() { }
 
+    /// <summary>
+    /// Constructor for Dependency Injection container 
+    /// </summary>
+    /// <param name="options">Options to configure context properly</param>
     public ProductionTrackerContext(DbContextOptions<ProductionTrackerContext> options) : base(options) { }
 
+    /// <summary>
+    /// Table that stores production order data
+    /// </summary>
     public DbSet<ProductionOrder> ProductionOrders { get; set; }
 
+    /// <summary>
+    /// Table that stores production process steps for a production order
+    /// </summary>
     public DbSet<Step> Steps { get; set; }
 
+    /// <summary>
+    /// Configuration of database
+    /// </summary>
+    /// <param name="optionsBuilder"></param>
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         optionsBuilder.EnableSensitiveDataLogging();
