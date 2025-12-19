@@ -1,4 +1,4 @@
-import { Pressable, StyleSheet, View, Text } from "react-native";
+import { StyleSheet, View} from "react-native";
 import CampoApontamento from "../CampoApontamento";
 import { DadosOrdemDeProducao } from "@/models/DadosOrdemDeProducao";
 
