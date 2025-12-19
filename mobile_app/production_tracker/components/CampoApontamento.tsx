@@ -17,7 +17,6 @@ enum TipoData {
 }
 
 export default function CampoApontamento(props: Props) {
-  debugger;
   const [dadosLocais, setDadosLocais] = useState<DadosOrdemDeProducao>(
     props.dados
   );

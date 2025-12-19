@@ -1,34 +1,46 @@
-import ListaDeOrdensdeProducao from "@/components/ListaDeOrdensdeProducao";
-import { TipoOrdemDeProducao } from "@/models/TipoOrdemDeProducao";
-import { EstadoOrdemDeProducao } from "@/models/enums/EstadoOrdemDeProducao";
+import { useProductionOrdersService } from "@/api/productionOrders/useProductionOrdersService";
+import { useCallback, useState, useEffect } from "react";
+import ListaDeOrdensdeProducao from "../ListaDeOrdensdeProducao";
 
 export default function AbaOrdemDeProducao() {
-  const dados: TipoOrdemDeProducao[] = [
-    {
-      id: "1234567890",
-      state: EstadoOrdemDeProducao.APROVADA,
-    },
-    {
-      id: "1234567891",
-      state: EstadoOrdemDeProducao.PENDENTE,
-    },
-    {
-      id: "1234567892",
-      state: EstadoOrdemDeProducao.APROVADA,
-    },
-    {
-      id: "1234567893",
-      state: EstadoOrdemDeProducao.APROVADA,
-    },
-    {
-      id: "1234567894",
-      state: EstadoOrdemDeProducao.PENDENTE,
-    },
-    {
-      id: "1234567895",
-      state: EstadoOrdemDeProducao.FINALIZADA,
-    },
-  ];
+  debugger;
 
-  return <ListaDeOrdensdeProducao ordens={dados}></ListaDeOrdensdeProducao>;
+  console.warn("Início da execução da aba");
+
+  const [loading, setLoading] = useState(false);
+  const [initialLoadFinalized, setInitialLoadFinalized] = useState(false);
+  const [productionOrderList, setProductionOrderList] = useState([]);
+  const { getProductionOrders } = useProductionOrdersService();
+
+  const loadProductionOrders = useCallback(async () => {
+    try {
+      setLoading(true);
+      const response = await getProductionOrders();
+      setProductionOrderList(response);
+    } finally {
+      setLoading(false);
+    }
+  }, [getProductionOrders]);
+
+  useEffect(() => {
+    async function initialLoad() {
+      await Promise.all([loadProductionOrders()]);
+    }
+
+    console.log("Carregando...");
+    console.warn(`${initialLoadFinalized}`);
+
+    if (!initialLoadFinalized) {
+      initialLoad();
+      setInitialLoadFinalized(true);
+    }
+  }, []);
+
+  return (
+    productionOrderList.length > 0 && (
+      <ListaDeOrdensdeProducao
+        ordens={productionOrderList}
+      ></ListaDeOrdensdeProducao>
+    )
+  );
 }
