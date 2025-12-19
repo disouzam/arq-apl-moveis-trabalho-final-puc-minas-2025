@@ -1,6 +1,6 @@
 import { StyleSheet } from "react-native";
 
-export const apontamentoEstilos = StyleSheet.create({
+export const productionRecordStyles = StyleSheet.create({
   container: {
     display: "contents",
   },

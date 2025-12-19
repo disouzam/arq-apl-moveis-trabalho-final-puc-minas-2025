@@ -1,34 +1,34 @@
-import ListaDeOrdensdeProducao from "@/components/ListaDeOrdensdeProducao";
-import { TipoOrdemDeProducao } from "@/models/TipoOrdemDeProducao";
-import { EstadoOrdemDeProducao } from "@/models/enums/EstadoOrdemDeProducao";
+import ProductionOrdersList from "@/components/ProductionOrdersList";
+import { ProductionOrderType } from "@/models/ProductionOrderType";
+import { ProductionOrderState } from "@/models/enums/ProductionOrderState";
 
 export default function ProductionOrdersTab() {
-  const data: TipoOrdemDeProducao[] = [
+  const data: ProductionOrderType[] = [
     {
       id: "1234567890",
-      state: EstadoOrdemDeProducao.APROVADA,
+      state: ProductionOrderState.APPROVED,
     },
     {
       id: "1234567891",
-      state: EstadoOrdemDeProducao.PENDENTE,
+      state: ProductionOrderState.PENDING,
     },
     {
       id: "1234567892",
-      state: EstadoOrdemDeProducao.APROVADA,
+      state: ProductionOrderState.APPROVED,
     },
     {
       id: "1234567893",
-      state: EstadoOrdemDeProducao.APROVADA,
+      state: ProductionOrderState.APPROVED,
     },
     {
       id: "1234567894",
-      state: EstadoOrdemDeProducao.PENDENTE,
+      state: ProductionOrderState.PENDING,
     },
     {
       id: "1234567895",
-      state: EstadoOrdemDeProducao.FINALIZADA,
+      state: ProductionOrderState.COMPLETED,
     },
   ];
 
-  return <ListaDeOrdensdeProducao ordens={data}></ListaDeOrdensdeProducao>;
+  return <ProductionOrdersList productionOrders={data}></ProductionOrdersList>;
 }
