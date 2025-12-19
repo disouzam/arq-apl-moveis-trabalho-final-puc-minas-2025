@@ -57,6 +57,9 @@
             "description": "Id of the production order",
             "nullable": true
           },
+          "state": {
+            "$ref": "#/components/schemas/ProductionOrderState"
+          },
           "stepNames": {
             "type": "array",
             "items": {
@@ -86,6 +89,15 @@
         },
         "additionalProperties": false,
         "description": "A data transfer object for Production Orders"
+      },
+      "ProductionOrderState": {
+        "enum": [
+          "PENDING",
+          "APPROVED",
+          "COMPLETED"
+        ],
+        "type": "string",
+        "description": "Enumeration to describe the discrete states of a production order"
       }
     }
   }
