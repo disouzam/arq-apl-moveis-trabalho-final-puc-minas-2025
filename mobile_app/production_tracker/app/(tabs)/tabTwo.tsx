@@ -1,6 +1,6 @@
-import AbaApontamentos from "@/components/tabs/abaApontamentos";
+import ProductionRecordTab from "@/components/tabs/ProductionRecordTab";
 
 export default function TabTwoScreen() {
-  return (<AbaApontamentos></AbaApontamentos>)
+  return (<ProductionRecordTab></ProductionRecordTab>)
 }
 

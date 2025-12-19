@@ -2,7 +2,7 @@ import { StyleSheet, View} from "react-native";
 import CampoApontamento from "../CampoApontamento";
 import { DadosOrdemDeProducao } from "@/models/DadosOrdemDeProducao";
 
-export default function AbaApontamentos() {
+export default function ProductionRecordTab() {
     const dados: DadosOrdemDeProducao = {
         idDaOrdemDeProducao: "9296188434",
         etapa: ["Corte"],
