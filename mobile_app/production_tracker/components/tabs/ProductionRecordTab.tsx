@@ -3,7 +3,7 @@ import CampoApontamento from "../CampoApontamento";
 import { DadosOrdemDeProducao } from "@/models/DadosOrdemDeProducao";
 
 export default function ProductionRecordTab() {
-    const dados: DadosOrdemDeProducao = {
+    const data: DadosOrdemDeProducao = {
         idDaOrdemDeProducao: "9296188434",
         etapa: ["Corte"],
         inicio: [new Date(Date.UTC(2025,11,8,12,45,0)) ],
@@ -12,7 +12,7 @@ export default function ProductionRecordTab() {
 
   return (
     <View style={styles.container}>
-      <CampoApontamento dados={dados} indexEtapa={0}></CampoApontamento>
+      <CampoApontamento dados={data} indexEtapa={0}></CampoApontamento>
     </View>
   );
 }

@@ -2,7 +2,7 @@ import ListaDeOrdensdeProducao from "@/components/ListaDeOrdensdeProducao";
 import { TipoOrdemDeProducao } from "@/models/TipoOrdemDeProducao";
 import { EstadoOrdemDeProducao } from "@/models/enums/EstadoOrdemDeProducao";
 
-export default function AbaOrdemDeProducao() {
+export default function ProductionOrdersTab() {
   const dados: TipoOrdemDeProducao[] = [
     {
       id: "1234567890",
