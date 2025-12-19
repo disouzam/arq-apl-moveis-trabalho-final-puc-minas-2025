@@ -7,7 +7,9 @@ import Colors from "@/constants/Colors";
 import { useColorScheme } from "./useColorScheme";
 import { productionOrderStyles } from "@/styles/productionOrderStyles";
 
-export default function ProductionOrder(productionOrderType: ProductionOrderType) {
+export default function ProductionOrder(
+  productionOrderType: ProductionOrderType
+) {
   const colorScheme = useColorScheme();
 
   const isButtonEnabled = (state: ProductionOrderState) => {
@@ -55,7 +57,8 @@ export default function ProductionOrder(productionOrderType: ProductionOrderType
         return () =>
           alert(`Solicitar aprovação da ordem: ${productionOrderType.id}`);
       case ProductionOrderState.COMPLETED:
-        return () => alert(`Visualizar apontamentos: ${productionOrderType.id}`);
+        return () =>
+          alert(`Visualizar apontamentos: ${productionOrderType.id}`);
       default:
         return () => alert(`Estado inconsistente!`);
     }
