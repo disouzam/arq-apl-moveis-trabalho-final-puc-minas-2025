@@ -15,6 +15,11 @@ public class ProductionOrder
     public string Id { get; set; }
 
     /// <summary>
+    /// Indicate the state of current production order
+    /// </summary>
+    public ProductionOrderState State { get; set; }
+
+    /// <summary>
     /// List of step information linked to current production order
     /// </summary>
     public List<Step> Steps { get; set;}

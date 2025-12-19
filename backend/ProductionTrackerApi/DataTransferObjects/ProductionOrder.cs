@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
+
+using ProductionTrackerApi.Models;
 
 namespace ProductionTrackerApi.DataTransferObjects;
 
@@ -12,6 +15,12 @@ public class ProductionOrder
     /// Id of the production order
     /// </summary>
     public string Id { get; set; }
+
+    /// <summary>
+    /// State of production order
+    /// </summary>
+    [JsonConverter(typeof(JsonStringEnumConverter))]
+    public ProductionOrderState State { get; set; }
 
     /// <summary>
     /// A list with names of production process steps

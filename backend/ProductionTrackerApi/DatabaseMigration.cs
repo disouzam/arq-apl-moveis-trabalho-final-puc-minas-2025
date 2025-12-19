@@ -36,7 +36,8 @@ public static class DatabaseMigration
         {
             ProductionOrder productionOrder = new ProductionOrder()
             {
-                Id = "9875631480"
+                Id = "9875631480",
+                State = ProductionOrderState.COMPLETED
             };
 
             context.ProductionOrders.Add(productionOrder);

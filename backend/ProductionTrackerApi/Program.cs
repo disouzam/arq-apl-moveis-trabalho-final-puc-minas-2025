@@ -1,5 +1,6 @@
 using System;
 using System.IO;
+using System.Text.Json.Serialization;
 
 using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
@@ -26,9 +27,12 @@ public class Program
 
         // Add services to the container.
 
-        builder.Services.AddControllers().AddJsonOptions(options =>
+        builder.Services
+        .AddControllers()
+        .AddJsonOptions(options =>
         {
             options.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.IgnoreCycles;
+            options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
         });
 
         builder.Services.AddSwaggerGen(options =>

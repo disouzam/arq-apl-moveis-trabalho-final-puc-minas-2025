@@ -19,9 +19,11 @@ public static class ProductionOrderExtensions
         this Model.ProductionOrder productionOrderModel)
     {
         var dto = new Dto.ProductionOrder();
-         dto.Id = productionOrderModel.Id;
+        dto.Id = productionOrderModel.Id;
+        dto.State = productionOrderModel.State;
 
-        foreach(var step in productionOrderModel.Steps) {
+        foreach (var step in productionOrderModel.Steps)
+        {
             dto.StepNames.Add(step.Name);
 
             if (step.Start != null)
@@ -30,9 +32,9 @@ public static class ProductionOrderExtensions
                 dto.StartTimes.Add(startTime);
             }
 
-            if(step.End != null)
+            if (step.End != null)
             {
-                var endTime= (DateTime)step.End;
+                var endTime = (DateTime)step.End;
                 dto.EndTimes.Add(endTime);
             }
         }

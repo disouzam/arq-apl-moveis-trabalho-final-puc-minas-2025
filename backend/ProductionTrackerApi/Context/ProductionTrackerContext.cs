@@ -1,5 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System;
 
+using Microsoft.EntityFrameworkCore;
+using Microsoft.OpenApi.Extensions;
+
+using ProductionTrackerApi.Converters;
 using ProductionTrackerApi.Models;
 
 namespace ProductionTrackerApi.Context;
@@ -59,6 +63,14 @@ public class ProductionTrackerContext : DbContext
             entity.Property(e => e.Id)
             .HasMaxLength(10)
             .HasColumnType("varchar(10)");
+
+            entity.Property(e => e.State)
+            .IsRequired()
+            .HasMaxLength(9)
+            .IsUnicode(false)
+            .HasDefaultValue(ProductionOrderState.PENDING)
+            .HasConversion(x => x.GetAttributeOfType<SQLTextDescription>().TextDescription,
+            x => Enum.Parse<ProductionOrderState>(x, true));
 
             entity.HasMany(po => po.Steps)
             .WithOne(s => s.ProductionOrder)
