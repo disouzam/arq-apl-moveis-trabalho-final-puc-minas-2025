@@ -1,3 +1,6 @@
+using System;
+using System.IO;
+
 using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
@@ -36,6 +39,8 @@ public class Program
                 Title = "Production Tracker API",
                 Description = "An ASP.NET Core Web API for managing Production orders and tracking information",
             });
+
+            options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, "ProductionTrackerApi.xml"));
         });
 
         builder.Services.AddDbContext<ProductionTrackerContext>(options =>
