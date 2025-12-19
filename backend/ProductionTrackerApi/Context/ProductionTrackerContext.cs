@@ -1,21 +1,43 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System;
 
+using Microsoft.EntityFrameworkCore;
+using Microsoft.OpenApi.Extensions;
+
+using ProductionTrackerApi.Converters;
 using ProductionTrackerApi.Models;
-
-using static System.Net.WebRequestMethods;
 
 namespace ProductionTrackerApi.Context;
 
+/// <summary>
+/// Context of Production Tracker API's database
+/// </summary>
 public class ProductionTrackerContext : DbContext
 {
+    /// <summary>
+    /// Parameterless constructor
+    /// </summary>
     public ProductionTrackerContext() { }
 
+    /// <summary>
+    /// Constructor for Dependency Injection container 
+    /// </summary>
+    /// <param name="options">Options to configure context properly</param>
     public ProductionTrackerContext(DbContextOptions<ProductionTrackerContext> options) : base(options) { }
 
+    /// <summary>
+    /// Table that stores production order data
+    /// </summary>
     public DbSet<ProductionOrder> ProductionOrders { get; set; }
 
+    /// <summary>
+    /// Table that stores production process steps for a production order
+    /// </summary>
     public DbSet<Step> Steps { get; set; }
 
+    /// <summary>
+    /// Configuration of database
+    /// </summary>
+    /// <param name="optionsBuilder"></param>
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         optionsBuilder.EnableSensitiveDataLogging();
@@ -41,6 +63,14 @@ public class ProductionTrackerContext : DbContext
             entity.Property(e => e.Id)
             .HasMaxLength(10)
             .HasColumnType("varchar(10)");
+
+            entity.Property(e => e.State)
+            .IsRequired()
+            .HasMaxLength(9)
+            .IsUnicode(false)
+            .HasDefaultValue(ProductionOrderState.PENDING)
+            .HasConversion(x => x.GetAttributeOfType<SQLTextDescription>().TextDescription,
+            x => Enum.Parse<ProductionOrderState>(x, true));
 
             entity.HasMany(po => po.Steps)
             .WithOne(s => s.ProductionOrder)

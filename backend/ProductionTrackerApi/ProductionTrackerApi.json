@@ -11,6 +11,7 @@
         "tags": [
           "ProductionOrder"
         ],
+        "summary": "Endpoint to get all production orders",
         "operationId": "GetProductionOrders",
         "responses": {
           "200": {
@@ -53,13 +54,18 @@
         "properties": {
           "id": {
             "type": "string",
+            "description": "Id of the production order",
             "nullable": true
+          },
+          "state": {
+            "$ref": "#/components/schemas/ProductionOrderState"
           },
           "stepNames": {
             "type": "array",
             "items": {
               "type": "string"
             },
+            "description": "A list with names of production process steps",
             "nullable": true
           },
           "startTimes": {
@@ -68,6 +74,7 @@
               "type": "string",
               "format": "date-time"
             },
+            "description": "A list with start times of all production process steps",
             "nullable": true
           },
           "endTimes": {
@@ -76,10 +83,21 @@
               "type": "string",
               "format": "date-time"
             },
+            "description": "A list with end times of all production process steps",
             "nullable": true
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "description": "A data transfer object for Production Orders"
+      },
+      "ProductionOrderState": {
+        "enum": [
+          "PENDING",
+          "APPROVED",
+          "COMPLETED"
+        ],
+        "type": "string",
+        "description": "Enumeration to describe the discrete states of a production order"
       }
     }
   }

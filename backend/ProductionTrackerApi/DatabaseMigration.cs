@@ -10,8 +10,16 @@ using ProductionTrackerApi.Models;
 
 namespace ProductionTrackerApi;
 
+/// <summary>
+/// Helper class to perform migrations on startup and seed database when necessary
+/// </summary>
 public static class DatabaseMigration
 {
+    /// <summary>
+    /// Perform migration of database schema and seed if when empty
+    /// </summary>
+    /// <param name="app">Instance of application running</param>
+    /// <param name="context">Instance of database context</param>
     public static void MigrateAndSeed(this WebApplication app, ProductionTrackerContext context)
     {
         context.Database.Migrate();
@@ -28,7 +36,8 @@ public static class DatabaseMigration
         {
             ProductionOrder productionOrder = new ProductionOrder()
             {
-                Id = "9875631480"
+                Id = "9875631480",
+                State = ProductionOrderState.COMPLETED
             };
 
             context.ProductionOrders.Add(productionOrder);
