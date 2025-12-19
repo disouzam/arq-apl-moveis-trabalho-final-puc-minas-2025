@@ -1,5 +1,5 @@
-import AbaOrdemDeProducao from "../../components/abas/abaOrdensDeProducao";
+import ProductionOrdersTab from "../../components/tabs/ProductionOrdersTab";
 
 export default function TabOneScreen() {
-  return <AbaOrdemDeProducao></AbaOrdemDeProducao>
+  return <ProductionOrdersTab></ProductionOrdersTab>
 }

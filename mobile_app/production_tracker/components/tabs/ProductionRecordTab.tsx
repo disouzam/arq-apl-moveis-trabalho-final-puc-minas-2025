@@ -1,18 +1,18 @@
-import { Pressable, StyleSheet, View, Text } from "react-native";
-import CampoApontamento from "../CampoApontamento";
-import { DadosOrdemDeProducao } from "@/models/DadosOrdemDeProducao";
+import { StyleSheet, View} from "react-native";
+import ProductionRecordField from "../ProductionRecordField";
+import { ProductionOrderData } from "@/models/ProductionOrderData";
 
-export default function AbaApontamentos() {
-    const dados: DadosOrdemDeProducao = {
-        idDaOrdemDeProducao: "9296188434",
-        etapa: ["Corte"],
-        inicio: [new Date(Date.UTC(2025,11,8,12,45,0)) ],
-        final: []
+export default function ProductionRecordTab() {
+    const data: ProductionOrderData = {
+        id: "9296188434",
+        step: ["Corte"],
+        start: [new Date(Date.UTC(2025,11,8,12,45,0)) ],
+        end: []
     }
 
   return (
     <View style={styles.container}>
-      <CampoApontamento dados={dados} indexEtapa={0}></CampoApontamento>
+      <ProductionRecordField data={data} productionStepIndex={0}></ProductionRecordField>
     </View>
   );
 }

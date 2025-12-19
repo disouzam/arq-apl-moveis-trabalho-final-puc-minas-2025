@@ -54,7 +54,7 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="abaDois"
+        name="tabTwo"
         options={{
           title: "Apontamentos",
           tabBarIcon: ({ color }) => (

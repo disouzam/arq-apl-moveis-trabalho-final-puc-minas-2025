@@ -1,6 +1,6 @@
 import { StyleSheet } from "react-native";
 
-export const ordemDeProducaoEstilos = StyleSheet.create({
+export const productionOrderStyles = StyleSheet.create({
     container: {
       display: "flex",
       flexDirection: "row",
@@ -9,14 +9,14 @@ export const ordemDeProducaoEstilos = StyleSheet.create({
       margin: 5,
       fontSize: 20,
     },
-    ordemDeProducaoState: {
+    productionOrderState: {
       flex: 3,
       paddingLeft: 15,
       margin: 0,
       color: "#000",
       verticalAlign: "middle",
     },
-    ordemDeProducaoId: {
+    productionOrderId: {
       flex: 4,
       paddingLeft: 15,
       margin: 0,

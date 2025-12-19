@@ -1,0 +1,8 @@
+Tags and its commit SHAs:
+
+e807a926e464343b5d3dc635a314b1fe3515ae61 refs/tags/rascunho-comunicacao-backend^{}
+
+
+Tag messages:
+
+rascunho-comunicacao-backend Rascunho incompleto e com erros da implementação da comunicação com o backend. Um dos possíveis erros é a configuração dos hooks
