@@ -49,14 +49,13 @@ Exemplo caso o tema seja restaurante:
 - [TypeScript](https://www.typescriptlang.org/) (opcional)
 - [AsyncStorage](https://react-native-async-storage.github.io/async-storage/) (para persistência local)
 
-### 🎥 Demonstração em Vídeo (em construção)
+### 🎥 Demonstração em Vídeo
 
 📺 Assista ao vídeo de apresentação do app pelo link abaixo:
 
-🔗 [Link para o vídeo no YouTube](https://youtube.com/seu-video-aqui)
-*(ou adicione o arquivo de vídeo na pasta do projeto)*
+🔗 [Link para o vídeo no YouTube](https://youtu.be/ASQXkeXToaQ)
 
-### 🔗 Repositório (em construção)
+### 🔗 Repositório
 
 Este repositório contém todo o código-fonte do projeto, bem como os recursos visuais utilizados e instruções para execução local.
 
@@ -186,3 +185,24 @@ As primeiras duas telas estão prontas e já permitem uma primeira iteração no
         <img src="./docs/images/02_segunda_tela_Figma.png" width="30%" style="display:block"/>
     </div>
 </div>
+
+# Considerações finais
+
+O objetivo estabelecido pelo professor na definição do trabalho final não foi atingido em especial pela minha dificuldade em construir uma aplicação React Native do zero sem nenhum tutorial passo a passo adequado para o meu contexto. O backend também sofreu de anemia de funcionalidades por conta do tempo dedicado ao esboço das telas no Figma e à construção dos componentes e tipos na aplicação React Native.
+
+Ainda assim, tentou-se manter um código limpo e organizado, com responsabilidades bem definidas em cada uma das suas partes e com configurações apropriadas para cada projeto. Adotou-se commits pequenos e claros durante a maior parte dos seus 137 commits e blocos de trabalho coeso e relacionados para cada pull request (dos seus 12 completados) como listado a seguir:
+
+1. **a70db4e** Merge pull request #1 from disouzam/setup
+1. **3e9bad5** Criação de projeto template Expo + React Native (#2)
+1. **d08968f** Criação do código "boilerplate" da API em C# / .NET 9 (#3)
+1. **4eb0ebd** Primeiras telas e ideias do aplicativo (#4)
+1. **c67f45f** Desenvolvimento das primeiras telas (#5)
+1. **298d8dd** Primeiros passos de desenvolvimento da API - Restart / reset do projeto (#6)
+1. **9a29de4** Configuração do uso do Swashbuckle para geração da página com a documentação no formato OpenAPI (#7)
+1. **86fd096** Introdução do Entity Framework e configurações (#8)
+1. **d1fe4b1** Criação do primeiro objeto de transferência de dados para evitar uso direto das entidades/  modelos junto à interface pública da API (#9)
+1. **5794cc1** Preparação do projeto para comunicação com o backend (#10)
+1. **0cc3f5b** Ajuste da ordem de produção e configuração para tratamento de enumeradores no banco de dados (#11)
+1. **7379134** Iteração final (19/12/2025): Rascunhos finais dos ajustes da interface, configuração de React Hooks e considerações finais sobre os resultados atingidos (#12)
+
+O vídeo de apresentação tem duração de cerca de 45 minutos e busca apresentar as partes principais do trabalho e o funcionamento alcançado.
